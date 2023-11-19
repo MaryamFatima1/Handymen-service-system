@@ -19,7 +19,6 @@ const HandymanSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 HandymanSchema.pre('remove', function (next) {
   this.deleted = true;
   this.save(next);

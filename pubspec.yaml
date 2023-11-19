@@ -1,0 +1,311 @@
+name: handymanservicesystem
+description: A exported flutter project from FUNCTION12
+
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.4
+  auto_size_text: ^3.0.0
+  http: ^1.1.0
+  dio: ^5.3.3
+  dropdown_button2: ^2.3.9
+  image_picker: ^1.0.4
+  font_awesome_flutter: ^10.6.0
+  cross_file: ^0.3.3+6
+  cross_file_image: ^1.1.0
+  typed_data: ^1.3.2
+  image: ^4.1.3
+  os: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/prototype/images/frame-7.png
+    - assets/prototype/images/frame-7-zzc.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback.png
+    - assets/prototype/images/auto-group-n5jg.png
+    - assets/prototype/images/frame-6.png
+    - assets/prototype/images/auto-group-ay76.png
+    - assets/prototype/images/image-7.png
+    - assets/prototype/images/frame-6-QAc.png
+    - assets/prototype/images/star-1.png
+    - assets/prototype/images/searching.png
+    - assets/prototype/images/auto-group-7u1s.png
+    - assets/prototype/images/star-1-N8x.png
+    - assets/prototype/images/checkbox-input-.png
+    - assets/prototype/images/image-15.png
+    - assets/prototype/images/bytesize-location.png
+    - assets/prototype/images/smart-home-upgrade-installation-bg.png
+    - assets/prototype/images/star-1-N5n.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-Wji.png
+    - assets/prototype/images/arrows-and-chevrons-chevrondown.png
+    - assets/prototype/images/man-gardener-digging-up-a-carrot.png
+    - assets/prototype/images/star-1-BjE.png
+    - assets/prototype/images/star-1-Qun.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-2Rv.png
+    - assets/prototype/images/image-15-pY8.png
+    - assets/prototype/images/select-icon.png
+    - assets/prototype/images/image-6.png
+    - assets/prototype/images/drywall-installation-bg.png
+    - assets/prototype/images/image-8.png
+    - assets/prototype/images/select-icon-ahe.png
+    - assets/prototype/images/ic-outline-insert-photo.png
+    - assets/prototype/images/ic-outline-insert-photo-6AC.png
+    - assets/prototype/images/confirmed.png
+    - assets/prototype/images/clarity-cancel-line.png
+    - assets/prototype/images/bytesize-location-n2L.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-t5N.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-FUt.png
+    - assets/prototype/images/ic-outline-insert-photo-C9E.png
+    - assets/prototype/images/painting-bg.png
+    - assets/prototype/images/frame-5.png
+    - assets/prototype/images/bytesize-location-rDn.png
+    - assets/prototype/images/frame-6-oui.png
+    - assets/prototype/images/auto-group-ujtn.png
+    - assets/prototype/images/checkbox-input--uYc.png
+    - assets/prototype/images/frame-5-rTr.png
+    - assets/prototype/images/star-3.png
+    - assets/prototype/images/ant-design-eye-filled.png
+    - assets/prototype/images/image-2.png
+    - assets/prototype/images/star-2.png
+    - assets/prototype/images/star-1-txg.png
+    - assets/prototype/images/suffix-.png
+    - assets/prototype/images/clarity-cancel-line-o44.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-wRA.png
+    - assets/prototype/images/ic-outline-insert-photo-Hjv.png
+    - assets/prototype/images/other-file.png
+    - assets/prototype/images/ant-design-eye-filled-13e.png
+    - assets/prototype/images/frame-6-gQg.png
+    - assets/prototype/images/money-tree.png
+    - assets/prototype/images/star-1-7Vz.png
+    - assets/prototype/images/ant-design-eye-filled-sk4.png
+    - assets/thumbnail/images/select-icon-7WY.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-V9i.png
+    - assets/prototype/images/bytesize-location-184.png
+    - assets/prototype/images/bytesize-location-3qS.png
+    - assets/prototype/images/image.png
+    - assets/prototype/images/clarity-cancel-line-Vv8.png
+    - assets/prototype/images/bytesize-location-Lvk.png
+    - assets/prototype/images/separator.png
+    - assets/prototype/images/star-1-tBa.png
+    - assets/prototype/images/other-file-Sit.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-CTA.png
+    - assets/prototype/images/frame-6-mFN.png
+    - assets/prototype/images/bytesize-location-XVS.png
+    - assets/prototype/images/suffix--HDi.png
+    - assets/prototype/images/star-4.png
+    - assets/prototype/images/image-ycU.png
+    - assets/prototype/images/frame-5-P5r.png
+    - assets/prototype/images/frame-7-sWp.png
+    - assets/prototype/images/star-5.png
+    - assets/prototype/images/small-appliance-repair-bg.png
+    - assets/prototype/images/group.png
+    - assets/prototype/images/frame-7-Jkp.png
+    - assets/prototype/images/bytesize-location-mwE.png
+    - assets/prototype/images/tile-installation-bg.png
+    - assets/prototype/images/window-repair-bg.png
+    - assets/prototype/images/image-bg.png
+    - assets/prototype/images/frame-5-HGt.png
+    - assets/prototype/images/girl-with-a-dog-doing-yoga-on-a-mat.png
+    - assets/prototype/images/ant-design-eye-filled-iic.png
+    - assets/prototype/images/logo-product-home.png
+    - assets/prototype/images/ic-outline-handyman.png
+    - assets/prototype/images/other-file-4AC.png
+    - assets/prototype/images/man-gardener-digging-up-a-carrot-hd2.png
+    - assets/prototype/images/image-Zv8.png
+    - assets/prototype/images/image-wnG.png
+    - assets/prototype/images/image-io2.png
+    - assets/prototype/images/image-wqz.png
+    - assets/prototype/images/searching-5SQ.png
+    - assets/prototype/images/drywall-installation.png
+    - assets/prototype/images/image-Jdn.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-h5A.png
+    - assets/prototype/images/line-md-confirm-circle.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-MMr.png
+    - assets/prototype/images/frame-7-JyE.png
+    - assets/prototype/images/image-6-SBa.png
+    - assets/prototype/images/image-bg-5Rz.png
+    - assets/prototype/images/image-bg-2ME.png
+    - assets/prototype/images/drywall-installation-vet.png
+    - assets/prototype/images/image-EqE.png
+    - assets/prototype/images/man-with-money.png
+    - assets/prototype/images/fixture-replacement-bg.png
+    - assets/prototype/images/drywall-installation-5WG.png
+    - assets/prototype/images/drywall-installation-Fig.png
+    - assets/prototype/images/man-fixing-washing-machine.png
+    - assets/prototype/images/drywall-installation-uCt.png
+    - assets/prototype/images/star-1-sHA.png
+    - assets/prototype/images/star-1-nzL.png
+    - assets/prototype/images/star-1-xek.png
+    - assets/prototype/images/star-1-uwN.png
+    - assets/prototype/images/bytesize-location-f1a.png
+    - assets/prototype/images/drywall-installation-W4x.png
+    - assets/prototype/images/frame-6-yPE.png
+    - assets/prototype/images/frame-7-YsJ.png
+    - assets/prototype/images/star-1-BLc.png
+    - assets/prototype/images/frame-5-jXN.png
+    - assets/prototype/images/ic-outline-handyman-UqN.png
+    - assets/prototype/images/star-1-5GU.png
+    - assets/prototype/images/image-dVA.png
+    - assets/prototype/images/arrows-and-chevrons-arrowback-J5N.png
+    - assets/prototype/images/separator-TeQ.png
+    - assets/prototype/images/auto-group-rfu4.png
+    - assets/prototype/images/group-VGc.png
+    - assets/prototype/images/group-Hmi.png
+    - assets/prototype/images/separator-uPE.png
+    - assets/thumbnail/images/bytesize-clock.png
+    - assets/thumbnail/images/bytesize-location-nNt.png
+    - assets/thumbnail/images/star-1-9Uk.png
+    - assets/thumbnail/images/fluent-call-48-regular.png
+    - assets/thumbnail/images/logo-product-messaging.png
+    - assets/thumbnail/images/clarity-cancel-line-ceL.png
+    - assets/thumbnail/images/arrows-and-chevrons-arrowforward.png
+    - assets/prototype/images/separator-ix8.png
+    - assets/thumbnail/images/star-2-GeC.png
+    - assets/prototype/images/group-bbv.png
+    - assets/thumbnail/images/bytesize-clock-HTN.png
+    - assets/thumbnail/images/frame-6-V5a.png
+    - assets/thumbnail/images/clarity-cancel-line-MkL.png
+    - assets/thumbnail/images/frame-7-HwN.png
+    - assets/thumbnail/images/star-5-mui.png
+    - assets/thumbnail/images/star-5-WXr.png
+    - assets/thumbnail/images/logo-product-messaging-PcC.png
+    - assets/thumbnail/images/fluent-call-48-regular-p32.png
+    - assets/thumbnail/images/star-3-ddz.png
+    - assets/thumbnail/images/star-3-Pr8.png
+    - assets/thumbnail/images/frame-7-ddz.png
+    - assets/thumbnail/images/auto-group-w2up.png
+    - assets/thumbnail/images/arrows-and-chevrons-arrowback-Mk4.png
+    - assets/thumbnail/images/logo-product-messaging-Vzg.png
+    - assets/thumbnail/images/logo-product-messaging-1qS.png
+    - assets/thumbnail/images/arrows-and-chevrons-arrowback-6Up.png
+    - assets/thumbnail/images/star-4-tKi.png
+    - assets/thumbnail/images/bytesize-location-i5n.png
+    - assets/thumbnail/images/line-md-confirm-circle-Rkt.png
+    - assets/thumbnail/images/confirmed-iXa.png
+    - assets/thumbnail/images/suffix--4Wk.png
+    - assets/thumbnail/images/frame-5-sXn.png
+    - assets/thumbnail/images/fluent-call-48-regular-4AL.png
+    - assets/thumbnail/images/frame-5-QRe.png
+    - assets/thumbnail/images/fluent-call-48-regular-Gkg.png
+    - assets/thumbnail/images/frame-7-7FW.png
+    - assets/thumbnail/images/frame-6-bqA.png
+    - assets/thumbnail/images/auto-group-26r4.png
+    - assets/thumbnail/images/star-1-U9N.png
+    - assets/thumbnail/images/star-4-TAG.png
+    - assets/thumbnail/images/star-1-U24.png
+    - assets/thumbnail/images/frame-6-Bd2.png
+    - assets/thumbnail/images/frame-5-4si.png
+    - assets/thumbnail/images/logo-product-messaging-2jz.png
+    - assets/thumbnail/images/select-icon-SHe.png
+    - assets/thumbnail/images/auto-group-uzbe.png
+    - assets/thumbnail/images/clarity-cancel-line-WPi.png
+    - assets/thumbnail/images/star-1-zMN.png
+    - assets/thumbnail/images/bytesize-location-Xy2.png
+    - assets/thumbnail/images/bytesize-location-Jt8.png
+    - assets/thumbnail/images/star-2-5z8.png
+    - assets/thumbnail/images/man-with-money-PgC.png
+    - assets/thumbnail/images/frame-7-zvC.png
+    - assets/thumbnail/images/drywall-installation-5oN.png
+    - assets/thumbnail/images/suffix--Mfe.png
+    - assets/thumbnail/images/image-9bN.png
+    - assets/thumbnail/images/frame-6-2FJ.png
+    - assets/thumbnail/images/image-13.png
+    - assets/thumbnail/images/girl-with-a-dog-doing-yoga-on-a-mat-ZCt.png
+    - assets/thumbnail/images/frame-5-HPn.png
+    - assets/thumbnail/images/image-12.png
+    - assets/thumbnail/images/image-14.png
+    - assets/thumbnail/images/fluent-call-48-regular-7ct.png
+    - assets/thumbnail/images/image-13-huz.png
+    - assets/thumbnail/images/drywall-installation-kAC.png
+    - assets/thumbnail/images/drywall-installation-hPE.png
+    - assets/thumbnail/images/image-LFi.png
+    - assets/thumbnail/images/image-kYx.png
+    - assets/thumbnail/images/image-12-d9i.png
+    - assets/thumbnail/images/image-crt.png
+    - assets/thumbnail/images/image-14-3HS.png
+    - assets/thumbnail/images/drywall-installation-1jv.png
+    - assets/thumbnail/images/profileicon.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

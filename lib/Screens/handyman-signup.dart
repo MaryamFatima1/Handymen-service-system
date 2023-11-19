@@ -54,6 +54,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
       'Content-Type': 'application/json; charset=utf-8',
     };
     RegisterHandymanBody newhandyman = const RegisterHandymanBody(
+      id: '1git',
       first_name: 'John Doe',
       last_name: 'Doe',
       city_name: 'New York',

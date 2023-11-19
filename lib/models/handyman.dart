@@ -1,7 +1,7 @@
-import 'dart:convert';
-import 'dart:typed_data';
+
 
 class RegisterHandymanBody {
+  final String id;
   final String first_name;
   final String last_name;
   final String city_name;
@@ -12,6 +12,7 @@ class RegisterHandymanBody {
   final String service_description;
 
   const RegisterHandymanBody({
+    required this .id,
     required this.first_name,
     required this.last_name,
     required this.city_name,
@@ -25,6 +26,7 @@ class RegisterHandymanBody {
 // Update toJson() function to encode profilePicture as Base64
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'first_name': first_name,
       'last_name': last_name,
       'city_name': city_name,
@@ -38,6 +40,7 @@ class RegisterHandymanBody {
 
   factory RegisterHandymanBody.fromJson(Map<String, dynamic> json) {
     return RegisterHandymanBody(
+      id: json['id'],
       first_name: json['first_name'],
       last_name: json['last_name'],
       city_name: json['city_name'],

@@ -35,40 +35,6 @@ void main() {
   runApp(MyApp());
 }
 
-class MyAPI extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('API Call Example'),
-        ),
-        body: Center(
-          child: ElevatedButton(
-            onPressed: () async {
-              // Create a Dio client.
-
-              final dio = Dio();
-
-              // Make the API call.
-
-              final response = await dio.get('http://localhost:3007/');
-
-              // Handle the response.
-
-              if (response.statusCode == 200) {
-                print(response.data);
-              } else {
-                print('Error: ${response.statusCode}');
-              }
-            },
-            child: Text('Call API'),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class MyApp extends StatelessWidget {
   @override

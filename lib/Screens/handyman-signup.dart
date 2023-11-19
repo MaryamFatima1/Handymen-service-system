@@ -45,7 +45,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     }
 
     for (final handyman in handymen) {
-      print('First Name: ${handyman.first_name}');
+     // print('First Name: ${handyman.first_name}');
     }
   }
 
@@ -79,7 +79,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     } else {
       print('Error registering user');
     }
-    print('Name: ${_handyman!.first_name}');
+   // print('Name: ${_handyman!.first_name}');
     Navigator.pushNamed(
       context,
       Handyman_Home.RouteName,

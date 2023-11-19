@@ -4,7 +4,6 @@ import 'Screens/landing.dart';
 import './Screens/handyman-signin.dart';
 import './Screens/handyman-signup.dart';
 //import 'package:http/http.dart' as http;
-import 'package:dio/dio.dart';
 import './Screens/handymans-home.dart';
 import './Screens/handyman-profile.dart';
 

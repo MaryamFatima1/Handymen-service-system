@@ -45,7 +45,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     }
 
     for (final handyman in handymen) {
-     // print('First Name: ${handyman.first_name}');
+      // print('First Name: ${handyman.first_name}');
     }
   }
 
@@ -54,7 +54,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
       'Content-Type': 'application/json; charset=utf-8',
     };
     RegisterHandymanBody newhandyman = const RegisterHandymanBody(
-      id: '1git',
+      id: '0987654',
       first_name: 'John Doe',
       last_name: 'Doe',
       city_name: 'New York',
@@ -67,24 +67,28 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     final Map<String, dynamic> json = newhandyman.toJson();
     final String body = jsonEncode(json);
     final request = http.Request('POST', Uri.parse(registration_handyman));
+    print('azman');
     request.headers.addAll(headers);
     request.body = body;
     final response = await request.send();
-    if (response.statusCode == 201) {
-      final String responseBody = await response.stream.bytesToString();
-      final jsonData = jsonDecode(responseBody);
-      setState(() {
-        _handyman = RegisterHandymanBody.fromJson(jsonData);
-      });
-    } else {
-      print('Error registering user');
-    }
-   // print('Name: ${_handyman!.first_name}');
-    Navigator.pushNamed(
-      context,
-      Handyman_Home.RouteName,
-      arguments: _handyman,
-    );
+    final String responseBody = await response.stream.bytesToString();
+    final jsonData = jsonDecode(responseBody);
+    _handyman = RegisterHandymanBody.fromJson(jsonData);
+    // if (response.statusCode == 201) {
+    //   final String responseBody = await response.stream.bytesToString();
+    //   final jsonData = jsonDecode(responseBody);
+    //   setState(() {
+    //     _handyman = RegisterHandymanBody.fromJson(jsonData);
+    //   });
+    //   Navigator.pushNamed(
+    //     context,
+    //     Handyman_Home.RouteName,
+    //     arguments: _handyman,
+    //   );
+    // } else {
+    //   print('Error registering user');
+    // }
+    print('Name: ${_handyman!.first_name}');
   }
 
   @override
@@ -530,7 +534,6 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
                     InkWell(
                       onTap: () {
                         registerUser(context);
-
                         // if (_firstNameController.text.isEmpty ||
                         //     _lastNameController.text.isEmpty ||
                         //     _cityController.text.isEmpty ||

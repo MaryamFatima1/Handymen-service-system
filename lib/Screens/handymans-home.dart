@@ -4,6 +4,7 @@ import '../models/handyman.dart';
 import 'package:http/http.dart' as http;
 import '../configuration.dart';
 import 'dart:convert';
+import '../models/Service.dart';
 
 class Handyman_Home extends StatefulWidget {
   static const RouteName = '/Handyman_Home';
@@ -12,8 +13,10 @@ class Handyman_Home extends StatefulWidget {
 }
 
 class _HandymanHomeState extends State<Handyman_Home> {
+  List<String> items = ['azman'];
   RegisterHandymanBody? _handyman;
   final descriptionController = TextEditingController();
+
   void didChangeDependencies() {
     super.didChangeDependencies();
 
@@ -34,23 +37,35 @@ class _HandymanHomeState extends State<Handyman_Home> {
       );
       _handyman = newhandyman;
     }
+    ////
+    void getServiceList() async {
+      final headers = {
+        'Content-Type': 'application/json; charset=utf-8',
+      };
+
+      final request = http.Request('GET', Uri.parse(registration_service));
+      request.headers.addAll(headers);
+
+      final response = await request.send();
+      final String responseBody = await response.stream.bytesToString();
+      final jsonData = jsonDecode(responseBody);
+
+      final List<RegisterServiceBody> services = [];
+      for (final dynamic serviceJson in jsonData) {
+        final service = RegisterServiceBody.fromJson(serviceJson);
+        services.add(service);
+      }
+      setState(() {
+        for (final service in services) {
+          items.add(service.name);
+          // print('Name: ${service.name}');
+        }
+      });
+    }
   }
 
   int currentPageIndex = 0;
-  List<String> items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 7',
-    'Item 8',
-    'Item 9',
-    'Item 20',
-    'Item 47',
-    'Item 50',
-    'Item 047',
-    '...'
-  ]; // Add more items as needed
+  // Add more items as needed
   String? selectedValue1;
   String? selectedValue2;
   String? selectedValue3;

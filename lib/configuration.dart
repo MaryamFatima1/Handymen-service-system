@@ -1,5 +1,6 @@
 final url = 'http://localhost:3007';
 final registration_handyman = url + '/HANDYMAN/Handymans';
+final registration_service = url + '/SERVICE//Services';
 
 
 //git status

@@ -13,22 +13,64 @@ class Handyman_Home extends StatefulWidget {
 }
 
 class _HandymanHomeState extends State<Handyman_Home> {
-  List<String> items = ['azman'];
+  List<String> items = [];
   RegisterHandymanBody? _handyman;
+  Handyman_id? _handyman_id;
   final descriptionController = TextEditingController();
 
-  void didChangeDependencies() {
-    super.didChangeDependencies();
+  String? selectedValue1;
+  String? selectedValue2;
+  String? selectedValue3;
+  String? selectedValue4;
 
+  List<String> availableItems1 = [];
+  List<String> availableItems2 = [];
+  List<String> availableItems3 = [];
+  List<String> availableItems4 = [];
+  void getHandymanbyid() async {
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    ///655c9c514c21281e086df55b
+    final request = http.Request(
+        'GET', Uri.parse('$registration_handyman/655c9c514c21281e086df55b'));
+    request.headers.addAll(headers);
+
+    final response = await request.send();
+    final String responseBody = await response.stream.bytesToString();
+    final jsonData = jsonDecode(responseBody);
+    _handyman = RegisterHandymanBody.fromJson(jsonData);
+    print(_handyman!.first_name);
+  }
+
+  void didChangeDependencies() async {
+    super.didChangeDependencies();
     final arguments = ModalRoute.of(context)?.settings.arguments;
     if (arguments != null) {
-      _handyman = arguments as RegisterHandymanBody;
+      _handyman_id = arguments as Handyman_id;
+      print('Dataget');
+      print(_handyman_id!.id);
+      Future.delayed(Duration.zero, () {
+        this.getHandymanbyid();
+      });
+      //getHandymanbyid();
+      // final headers = {
+      //   'Content-Type': 'application/json; charset=utf-8',
+      // };
+      // final request = http.Request(
+      //     'GET', Uri.parse('$registration_handyman/${_handyman_id!.id}'));
+      // request.headers.addAll(headers);
+      // final response = await request.send();
+      // final String responseBody = await response.stream.bytesToString();
+      // final jsonData = jsonDecode(responseBody);
+      // _handyman = RegisterHandymanBody.fromJson(jsonData);
     } else {
+      _handyman_id = Handyman_id(id: '655c74a74fe1679dd31d4647');
       RegisterHandymanBody newhandyman = const RegisterHandymanBody(
-        id: '65585b31c04da481f64f3fc4',
         first_name: 'Azman',
         last_name: 'Doe',
-        city_name: 'Sialkot',
+        city_name: 'notget',
         phone_number: '+1234567890',
         email: 'johndoe@example.com',
         password: 'password123',
@@ -37,8 +79,10 @@ class _HandymanHomeState extends State<Handyman_Home> {
       );
       _handyman = newhandyman;
     }
+
     ////
     void getServiceList() async {
+      final List<RegisterServiceBody> services = [];
       final headers = {
         'Content-Type': 'application/json; charset=utf-8',
       };
@@ -49,41 +93,49 @@ class _HandymanHomeState extends State<Handyman_Home> {
       final response = await request.send();
       final String responseBody = await response.stream.bytesToString();
       final jsonData = jsonDecode(responseBody);
-
-      final List<RegisterServiceBody> services = [];
-      for (final dynamic serviceJson in jsonData) {
-        final service = RegisterServiceBody.fromJson(serviceJson);
+      print(jsonData);
+      for (final dynamic ServiceJson in jsonData) {
+        final service = RegisterServiceBody.fromJson(ServiceJson);
         services.add(service);
       }
-      setState(() {
-        for (final service in services) {
+      for (final service in services) {
+        setState(() {
           items.add(service.name);
-          // print('Name: ${service.name}');
-        }
-      });
+          print(service.name);
+        });
+      }
+      availableItems1 = List.from(items);
+      availableItems2 = List.from(items);
+      availableItems3 = List.from(items);
+      availableItems4 = List.from(items);
+    }
+  }
+
+  void getServiceList() async {
+    final List<RegisterServiceBody> services = [];
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final request = http.Request('GET', Uri.parse(registration_service));
+    request.headers.addAll(headers);
+
+    final response = await request.send();
+    final String responseBody = await response.stream.bytesToString();
+    final jsonData = jsonDecode(responseBody);
+    print(jsonData);
+    for (final dynamic ServiceJson in jsonData) {
+      final service = RegisterServiceBody.fromJson(ServiceJson);
+      services.add(service);
+    }
+
+    for (final service in services) {
+      items.add(service.name);
     }
   }
 
   int currentPageIndex = 0;
   // Add more items as needed
-  String? selectedValue1;
-  String? selectedValue2;
-  String? selectedValue3;
-  String? selectedValue4;
-
-  List<String> availableItems1 = [];
-  List<String> availableItems2 = [];
-  List<String> availableItems3 = [];
-  List<String> availableItems4 = [];
-
-  @override
-  void initState() {
-    super.initState();
-    availableItems1 = List.from(items);
-    availableItems2 = List.from(items);
-    availableItems3 = List.from(items);
-    availableItems4 = List.from(items);
-  }
 
   CustomDropdownButton<String> buildDropdownButton(int index) {
     List<String> availableItems = index == 0
@@ -119,25 +171,33 @@ class _HandymanHomeState extends State<Handyman_Home> {
       onChanged: (String? value) {
         setState(() {
           if (index == 0) {
-            selectedValue1 = value;
-            availableItems2 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            setState(() {
+              selectedValue1 = value;
+              availableItems2 = List.from(items)..remove(value);
+              availableItems3 = List.from(items)..remove(value);
+              availableItems4 = List.from(items)..remove(value);
+            });
           } else if (index == 1) {
-            selectedValue2 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            setState(() {
+              selectedValue2 = value;
+              availableItems1 = List.from(items)..remove(value);
+              availableItems3 = List.from(items)..remove(value);
+              availableItems4 = List.from(items)..remove(value);
+            });
           } else if (index == 2) {
-            selectedValue3 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems2 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            setState(() {
+              selectedValue3 = value;
+              availableItems1 = List.from(items)..remove(value);
+              availableItems2 = List.from(items)..remove(value);
+              availableItems4 = List.from(items)..remove(value);
+            });
           } else {
-            selectedValue4 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems2 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
+            setState(() {
+              selectedValue4 = value;
+              availableItems1 = List.from(items)..remove(value);
+              availableItems2 = List.from(items)..remove(value);
+              availableItems3 = List.from(items)..remove(value);
+            });
           }
         });
       },
@@ -160,7 +220,7 @@ class _HandymanHomeState extends State<Handyman_Home> {
     };
 
     final request = http.Request(
-        'PUT', Uri.parse('$registration_handyman/${_handyman!.id}'));
+        'PUT', Uri.parse('$registration_handyman/${_handyman_id!.id}'));
     request.headers.addAll(headers);
     final body =
         jsonEncode({'service_description': descriptionController.text});
@@ -226,7 +286,9 @@ class _HandymanHomeState extends State<Handyman_Home> {
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.school),
-            icon: Icon(Icons.school_outlined),
+            icon: Icon(
+              Icons.school_outlined,
+            ),
             label: 'School',
           ),
         ],
@@ -261,17 +323,22 @@ class _HandymanHomeState extends State<Handyman_Home> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        // imagewoN (116:2149)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 13.99 * fem, 0 * fem),
-                        width: 52 * fem,
-                        height: 52 * fem,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(64 * fem),
-                          child: Image.asset(
-                            'assets/prototype/images/image-ycU.png',
-                            fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: () {
+                          getHandymanbyid();
+                        },
+                        child: Container(
+                          // imagewoN (116:2149)
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 0 * fem, 13.99 * fem, 0 * fem),
+                          width: 52 * fem,
+                          height: 52 * fem,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(64 * fem),
+                            child: Image.asset(
+                              'assets/prototype/images/image-ycU.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -584,6 +651,8 @@ class _HandymanHomeState extends State<Handyman_Home> {
                       color: Color(0xff0263e0),
                       onPressed: () {
                         Navigator.pop(context);
+                        // getServiceList();
+                        // getHandymanbyid();
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

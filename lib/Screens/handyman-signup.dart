@@ -18,6 +18,7 @@ class Handyman_Sign_Up_Screen extends StatefulWidget {
 
 class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
   RegisterHandymanBody? _handyman;
+  Handyman_id? _handyman_id;
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   final _cityController = TextEditingController();
@@ -26,35 +27,34 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
   final _passwordController = TextEditingController();
   final _repeatPasswordController = TextEditingController();
 
-  void getHandymanList() async {
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-    };
+  // void getHandymanList() async {
+  //   final headers = {
+  //     'Content-Type': 'application/json; charset=utf-8',
+  //   };
 
-    final request = http.Request('GET', Uri.parse(registration_handyman));
-    request.headers.addAll(headers);
+  //   final request = http.Request('GET', Uri.parse(registration_handyman));
+  //   request.headers.addAll(headers);
 
-    final response = await request.send();
-    final String responseBody = await response.stream.bytesToString();
-    final jsonData = jsonDecode(responseBody);
+  //   final response = await request.send();
+  //   final String responseBody = await response.stream.bytesToString();
+  //   final jsonData = jsonDecode(responseBody);
 
-    final List<RegisterHandymanBody> handymen = [];
-    for (final dynamic handymanJson in jsonData) {
-      final handyman = RegisterHandymanBody.fromJson(handymanJson);
-      handymen.add(handyman);
-    }
+  //   final List<RegisterHandymanBody> handymen = [];
+  //   for (final dynamic handymanJson in jsonData) {
+  //     final handyman = RegisterHandymanBody.fromJson(handymanJson);
+  //     handymen.add(handyman);
+  //   }
 
-    for (final handyman in handymen) {
-      // print('First Name: ${handyman.first_name}');
-    }
-  }
+  //   for (final handyman in handymen) {
+  //     // print('First Name: ${handyman.first_name}');
+  //   }
+  // }
 
   void registerUser(BuildContext context) async {
     final headers = {
       'Content-Type': 'application/json; charset=utf-8',
     };
     RegisterHandymanBody newhandyman = const RegisterHandymanBody(
-      id: '0987654',
       first_name: 'John Doe',
       last_name: 'Doe',
       city_name: 'New York',
@@ -67,28 +67,23 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     final Map<String, dynamic> json = newhandyman.toJson();
     final String body = jsonEncode(json);
     final request = http.Request('POST', Uri.parse(registration_handyman));
-    print('azman');
     request.headers.addAll(headers);
     request.body = body;
     final response = await request.send();
-    final String responseBody = await response.stream.bytesToString();
-    final jsonData = jsonDecode(responseBody);
-    _handyman = RegisterHandymanBody.fromJson(jsonData);
-    // if (response.statusCode == 201) {
-    //   final String responseBody = await response.stream.bytesToString();
-    //   final jsonData = jsonDecode(responseBody);
-    //   setState(() {
-    //     _handyman = RegisterHandymanBody.fromJson(jsonData);
-    //   });
-    //   Navigator.pushNamed(
-    //     context,
-    //     Handyman_Home.RouteName,
-    //     arguments: _handyman,
-    //   );
-    // } else {
-    //   print('Error registering user');
-    // }
-    print('Name: ${_handyman!.first_name}');
+    if (response.statusCode == 201) {
+      final String responseBody = await response.stream.bytesToString();
+      final jsonData = jsonDecode(responseBody);
+      setState(() {
+        _handyman_id = Handyman_id.fromJson(jsonData);
+      });
+      Navigator.pushNamed(
+        context,
+        Handyman_Home.RouteName,
+        arguments: _handyman_id,
+      );
+    } else {
+      print('Error registering user');
+    }
   }
 
   @override

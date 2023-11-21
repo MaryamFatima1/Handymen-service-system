@@ -13,7 +13,7 @@ class RegisterServiceBody {
 
   factory RegisterServiceBody.fromJson(Map<String, dynamic> json) {
     return RegisterServiceBody(
-      id: json['id'],
+      id: json['_id'],
       name: json['name'],
     );
   }

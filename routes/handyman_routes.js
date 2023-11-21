@@ -6,8 +6,8 @@ const handyman_controller = require('../controllers/Handyman_Controller');
 
 router_handyman.post('/Handymans',handyman_controller.createHandyman);
 router_handyman.get('/Handymans',handyman_controller.getallHandymans);
+router_handyman.get('/Handymans/:id',handyman_controller.getAHandyman);
 router_handyman.put('/Handymans/:id',handyman_controller.updateHandyman);
-//router_user.put('/Users/:id',user_controller.getUserbyId);
 router_handyman.delete('/Handymans/:id',handyman_controller.DeleteHandyman);
 router_handyman.post('/Handymans/login',handyman_controller.loginhandyman);
 //router_handyman.get('/Users/Admin',validateToken,requireRoles(['Saqib', '2']), user_controller.showdashboard);

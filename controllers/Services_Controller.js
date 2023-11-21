@@ -12,7 +12,7 @@ async function createService(req, res) {
 
 async function getAllServices(req, res) {
   try {
-    const services = await Service.find({ deleted: false });
+    const services = await Service.find({ deleted: false }).select('name');
     res.json(services);
   } catch (err) {
     res.status(500).json({ error: err.message });

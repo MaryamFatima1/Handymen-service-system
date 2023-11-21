@@ -7,39 +7,41 @@ async function createHandyman(req, res) {
       const handyman = await Handyman.create(req.body);
       res.status(201).json({
         id: handyman._id,
-        first_name: handyman.first_name,
-        last_name: handyman.last_name,
-        city_name: handyman.city_name,
-        phone_number: handyman.phone_number,
-        email: handyman.email,
-        password: handyman.password,
-        role: handyman.role,
-        service_description: handyman.service_description,
-        
       });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
   }
+  async function getAHandyman(req, res) {
+    try {
+      const { id } = req.params;
+      const handyman = await Handyman.findById(id);
+      if (!handyman || handyman.deleted) {
+        res.status(404).json({ error: 'Handyman not found' });
+      } else {
+        const selectedFields = {
+          first_name: handyman.first_name,
+          last_name: handyman.last_name,
+          city_name: handyman.city_name,
+          phone_number: handyman.phone_number,
+          password : handyman.password,
+          email: handyman.email,
+          role: handyman.role,
+          service_description: handyman.service_description,
+        };
+        res.json(selectedFields);
+      }
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  }
   async function getallHandymans(req, res) {
-    try{
-     const handymans = await Handyman.find();
-     res.json(handymans);
+    try {
+      const Handymans = await Handyman.find({ deleted: false });
+      res.json(Handymans);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
     }
-    catch(err) {
-        res.status(500).json({ error: err.message });
-    }
-}
-async function getHandymanbyId(req, res) {
-    try{
-      const {id} = req.params;
-      const Handymanfinded = await Handyman.findById(id);
-      res.json(Handymanfinded);
-  
-      }
-      catch(err) {
-          res.status(500).json({ error: err.message });
-      }
   }
   async function updateHandyman(req, res) {
     try{
@@ -99,10 +101,9 @@ async function loginhandyman(req, res, next) {
  module.exports = {
 createHandyman,
 getallHandymans,
-getHandymanbyId,
 updateHandyman,
 DeleteHandyman,
 loginhandyman,
-showdashboard
-
+showdashboard,
+getAHandyman,
 };

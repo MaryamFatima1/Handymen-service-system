@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import '../models/handyman.dart';
 import './handymans-home.dart';
+import '../models/Service.dart';
 
 class Handyman_Sign_Up_Screen extends StatefulWidget {
   static const RouteName = '/Handyman_Sign_Up';
@@ -26,6 +27,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repeatPasswordController = TextEditingController();
+  List<String> servicelist = [];
 
   // void getHandymanList() async {
   //   final headers = {
@@ -57,7 +59,7 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
     RegisterHandymanBody newhandyman = const RegisterHandymanBody(
       first_name: 'John Doe',
       last_name: 'Doe',
-      city_name: 'New York',
+      city_name: 'get data',
       phone_number: '+1234567890',
       email: 'johndoe@example.com',
       password: 'password123',
@@ -76,14 +78,86 @@ class _Handyman_Sign_Up_ScreenState extends State<Handyman_Sign_Up_Screen> {
       setState(() {
         _handyman_id = Handyman_id.fromJson(jsonData);
       });
+      final headersservice = {
+        'Content-Type': 'application/json; charset=utf-8',
+      };
+
+      final requestservice =
+          http.Request('GET', Uri.parse(registration_service));
+      requestservice.headers.addAll(headersservice);
+
+      final responseservice = await requestservice.send();
+      final String responseBodyservice =
+          await responseservice.stream.bytesToString();
+      final jsonDataservice = jsonDecode(responseBodyservice);
+      final List<RegisterServiceBody> services = [];
+      for (final dynamic ServiceJson in jsonDataservice) {
+        final service = RegisterServiceBody.fromJson(ServiceJson);
+        services.add(service);
+      }
+      for (final service in services) {
+        setState(() {
+          servicelist.add(service.name);
+        });
+      }
+      print('azman');
+      print(servicelist);
+      final arguments = {
+        'handymanId': _handyman_id,
+        'handyman': newhandyman,
+        'servicelist': servicelist,
+      };
       Navigator.pushNamed(
         context,
         Handyman_Home.RouteName,
-        arguments: _handyman_id,
+        arguments: arguments,
       );
     } else {
       print('Error registering user');
     }
+  }
+
+  void getHandymanbyid() async {
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    ///655c9c514c21281e086df55b
+    final request = http.Request(
+        'GET', Uri.parse('$registration_handyman/655c9c514c21281e086df55b'));
+    request.headers.addAll(headers);
+
+    final response = await request.send();
+    final String responseBody = await response.stream.bytesToString();
+    final jsonData = jsonDecode(responseBody);
+    _handyman = RegisterHandymanBody.fromJson(jsonData);
+    print(_handyman!.first_name);
+  }
+
+  void getServiceList() async {
+    final headersservice = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final requestservice = http.Request('GET', Uri.parse(registration_service));
+    requestservice.headers.addAll(headersservice);
+
+    final responseservice = await requestservice.send();
+    final String responseBodyservice =
+        await responseservice.stream.bytesToString();
+    final jsonDataservice = jsonDecode(responseBodyservice);
+    final List<RegisterServiceBody> services = [];
+    for (final dynamic ServiceJson in jsonDataservice) {
+      final service = RegisterServiceBody.fromJson(ServiceJson);
+      services.add(service);
+    }
+    for (final service in services) {
+      setState(() {
+        servicelist.add(service.name);
+      });
+    }
+    print('azman');
+    print(servicelist);
   }
 
   @override

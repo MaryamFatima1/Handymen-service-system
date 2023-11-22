@@ -13,11 +13,13 @@ class Handyman_Home extends StatefulWidget {
 }
 
 class _HandymanHomeState extends State<Handyman_Home> {
-  List<String> items = [];
+  late List<String> items = [];
   RegisterHandymanBody? _handyman;
   Handyman_id? _handyman_id;
   final descriptionController = TextEditingController();
 
+  int currentPageIndex = 0;
+  // Add more items as needed
   String? selectedValue1;
   String? selectedValue2;
   String? selectedValue3;
@@ -27,87 +29,41 @@ class _HandymanHomeState extends State<Handyman_Home> {
   List<String> availableItems2 = [];
   List<String> availableItems3 = [];
   List<String> availableItems4 = [];
-  void getHandymanbyid() async {
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-    };
 
-    ///655c9c514c21281e086df55b
-    final request = http.Request(
-        'GET', Uri.parse('$registration_handyman/655c9c514c21281e086df55b'));
-    request.headers.addAll(headers);
-
-    final response = await request.send();
-    final String responseBody = await response.stream.bytesToString();
-    final jsonData = jsonDecode(responseBody);
-    _handyman = RegisterHandymanBody.fromJson(jsonData);
-    print(_handyman!.first_name);
-  }
-
-  void didChangeDependencies() async {
+  void didChangeDependencies() {
     super.didChangeDependencies();
-    final arguments = ModalRoute.of(context)?.settings.arguments;
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
     if (arguments != null) {
-      _handyman_id = arguments as Handyman_id;
-      print('Dataget');
-      print(_handyman_id!.id);
-      Future.delayed(Duration.zero, () {
-        this.getHandymanbyid();
+      setState(() {
+        _handyman_id = arguments['handymanId'];
+        _handyman = arguments['handyman'];
+        items = arguments['servicelist'];
+        availableItems1 = List.from(items);
+        availableItems2 = List.from(items);
+        availableItems3 = List.from(items);
+        availableItems4 = List.from(items);
       });
-      //getHandymanbyid();
-      // final headers = {
-      //   'Content-Type': 'application/json; charset=utf-8',
-      // };
-      // final request = http.Request(
-      //     'GET', Uri.parse('$registration_handyman/${_handyman_id!.id}'));
-      // request.headers.addAll(headers);
-      // final response = await request.send();
-      // final String responseBody = await response.stream.bytesToString();
-      // final jsonData = jsonDecode(responseBody);
-      // _handyman = RegisterHandymanBody.fromJson(jsonData);
     } else {
-      _handyman_id = Handyman_id(id: '655c74a74fe1679dd31d4647');
-      RegisterHandymanBody newhandyman = const RegisterHandymanBody(
-        first_name: 'Azman',
-        last_name: 'Doe',
-        city_name: 'notget',
-        phone_number: '+1234567890',
-        email: 'johndoe@example.com',
-        password: 'password123',
-        role: 'Handyman',
-        service_description: 'I am a software engineer.',
-      );
-      _handyman = newhandyman;
-    }
-
-    ////
-    void getServiceList() async {
-      final List<RegisterServiceBody> services = [];
-      final headers = {
-        'Content-Type': 'application/json; charset=utf-8',
-      };
-
-      final request = http.Request('GET', Uri.parse(registration_service));
-      request.headers.addAll(headers);
-
-      final response = await request.send();
-      final String responseBody = await response.stream.bytesToString();
-      final jsonData = jsonDecode(responseBody);
-      print(jsonData);
-      for (final dynamic ServiceJson in jsonData) {
-        final service = RegisterServiceBody.fromJson(ServiceJson);
-        services.add(service);
-      }
-      for (final service in services) {
-        setState(() {
-          items.add(service.name);
-          print(service.name);
-        });
-      }
-      availableItems1 = List.from(items);
-      availableItems2 = List.from(items);
-      availableItems3 = List.from(items);
-      availableItems4 = List.from(items);
+      setState(() {
+        items = ['Service 01', 'Service 02', 'Service 03', 'Service 04'];
+        availableItems1 = List.from(items);
+        availableItems2 = List.from(items);
+        availableItems3 = List.from(items);
+        availableItems4 = List.from(items);
+        _handyman_id = Handyman_id(id: '655c74a74fe1679dd31d4647');
+        RegisterHandymanBody newhandyman = const RegisterHandymanBody(
+          first_name: 'Azman',
+          last_name: 'Doe',
+          city_name: 'Not get',
+          phone_number: '+1234567890',
+          email: 'johndoe@example.com',
+          password: 'password123',
+          role: 'Handyman',
+          service_description: 'I am a software engineer.',
+        );
+        _handyman = newhandyman;
+      });
     }
   }
 
@@ -123,19 +79,45 @@ class _HandymanHomeState extends State<Handyman_Home> {
     final response = await request.send();
     final String responseBody = await response.stream.bytesToString();
     final jsonData = jsonDecode(responseBody);
-    print(jsonData);
     for (final dynamic ServiceJson in jsonData) {
       final service = RegisterServiceBody.fromJson(ServiceJson);
       services.add(service);
     }
-
     for (final service in services) {
-      items.add(service.name);
+      setState(() {
+        print(service.name);
+      });
     }
   }
 
-  int currentPageIndex = 0;
-  // Add more items as needed
+  Future<void> updateHandymanServiceDescription() async {
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final request = http.Request(
+        'PUT', Uri.parse('$registration_handyman/${_handyman_id!.id}'));
+    request.headers.addAll(headers);
+    final body =
+        jsonEncode({'service_description': descriptionController.text});
+    request.body = body;
+
+    final response = await request.send();
+    final String responseBody = await response.stream.bytesToString();
+
+    if (response.statusCode == 200) {
+      print('Handyman service description updated successfully');
+    } else {
+      print(
+          'Error updating handyman service description: ${response.statusCode}');
+      print('Error message: $responseBody');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   CustomDropdownButton<String> buildDropdownButton(int index) {
     List<String> availableItems = index == 0
@@ -171,33 +153,25 @@ class _HandymanHomeState extends State<Handyman_Home> {
       onChanged: (String? value) {
         setState(() {
           if (index == 0) {
-            setState(() {
-              selectedValue1 = value;
-              availableItems2 = List.from(items)..remove(value);
-              availableItems3 = List.from(items)..remove(value);
-              availableItems4 = List.from(items)..remove(value);
-            });
+            selectedValue1 = value;
+            availableItems2 = List.from(items)..remove(value);
+            availableItems3 = List.from(items)..remove(value);
+            availableItems4 = List.from(items)..remove(value);
           } else if (index == 1) {
-            setState(() {
-              selectedValue2 = value;
-              availableItems1 = List.from(items)..remove(value);
-              availableItems3 = List.from(items)..remove(value);
-              availableItems4 = List.from(items)..remove(value);
-            });
+            selectedValue2 = value;
+            availableItems1 = List.from(items)..remove(value);
+            availableItems3 = List.from(items)..remove(value);
+            availableItems4 = List.from(items)..remove(value);
           } else if (index == 2) {
-            setState(() {
-              selectedValue3 = value;
-              availableItems1 = List.from(items)..remove(value);
-              availableItems2 = List.from(items)..remove(value);
-              availableItems4 = List.from(items)..remove(value);
-            });
+            selectedValue3 = value;
+            availableItems1 = List.from(items)..remove(value);
+            availableItems2 = List.from(items)..remove(value);
+            availableItems4 = List.from(items)..remove(value);
           } else {
-            setState(() {
-              selectedValue4 = value;
-              availableItems1 = List.from(items)..remove(value);
-              availableItems2 = List.from(items)..remove(value);
-              availableItems3 = List.from(items)..remove(value);
-            });
+            selectedValue4 = value;
+            availableItems1 = List.from(items)..remove(value);
+            availableItems2 = List.from(items)..remove(value);
+            availableItems3 = List.from(items)..remove(value);
           }
         });
       },
@@ -211,31 +185,6 @@ class _HandymanHomeState extends State<Handyman_Home> {
         overflow: TextOverflow.ellipsis,
       ),
     );
-  }
-
-  ///update api
-  Future<void> updateHandymanServiceDescription() async {
-    final headers = {
-      'Content-Type': 'application/json; charset=utf-8',
-    };
-
-    final request = http.Request(
-        'PUT', Uri.parse('$registration_handyman/${_handyman_id!.id}'));
-    request.headers.addAll(headers);
-    final body =
-        jsonEncode({'service_description': descriptionController.text});
-    request.body = body;
-
-    final response = await request.send();
-    final String responseBody = await response.stream.bytesToString();
-
-    if (response.statusCode == 200) {
-      print('Handyman service description updated successfully');
-    } else {
-      print(
-          'Error updating handyman service description: ${response.statusCode}');
-      print('Error message: $responseBody');
-    }
   }
 
 /////void addSelectedServices(BuildContext context, String handymanId) async {
@@ -286,9 +235,7 @@ class _HandymanHomeState extends State<Handyman_Home> {
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.school),
-            icon: Icon(
-              Icons.school_outlined,
-            ),
+            icon: Icon(Icons.school_outlined),
             label: 'School',
           ),
         ],
@@ -325,7 +272,7 @@ class _HandymanHomeState extends State<Handyman_Home> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          getHandymanbyid();
+                          getServiceList();
                         },
                         child: Container(
                           // imagewoN (116:2149)
@@ -650,9 +597,11 @@ class _HandymanHomeState extends State<Handyman_Home> {
                           borderRadius: BorderRadius.circular(8 * fem)),
                       color: Color(0xff0263e0),
                       onPressed: () {
-                        Navigator.pop(context);
-                        // getServiceList();
-                        // getHandymanbyid();
+                        // Navigator.pop(context);
+                        print(selectedValue1);
+                        print(selectedValue2);
+                        print(selectedValue3);
+                        print(selectedValue4);
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,

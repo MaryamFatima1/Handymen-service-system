@@ -13,22 +13,22 @@ class Handyman_Home extends StatefulWidget {
 }
 
 class _HandymanHomeState extends State<Handyman_Home> {
-  late List<String> items = [];
+  late List<String> services = [];
   RegisterHandymanBody? _handyman;
   Handyman_id? _handyman_id;
   final descriptionController = TextEditingController();
 
   int currentPageIndex = 0;
-  // Add more items as needed
+  // Add more services as needed
   String? selectedValue1;
   String? selectedValue2;
   String? selectedValue3;
   String? selectedValue4;
 
-  List<String> availableItems1 = [];
-  List<String> availableItems2 = [];
-  List<String> availableItems3 = [];
-  List<String> availableItems4 = [];
+  List<String> availableservices1 = [];
+  List<String> availableservices2 = [];
+  List<String> availableservices3 = [];
+  List<String> availableservices4 = [];
 
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -38,19 +38,19 @@ class _HandymanHomeState extends State<Handyman_Home> {
       setState(() {
         _handyman_id = arguments['handymanId'];
         _handyman = arguments['handyman'];
-        items = arguments['servicelist'];
-        availableItems1 = List.from(items);
-        availableItems2 = List.from(items);
-        availableItems3 = List.from(items);
-        availableItems4 = List.from(items);
+        services = arguments['servicelist'];
+        availableservices1 = List.from(services);
+        availableservices2 = List.from(services);
+        availableservices3 = List.from(services);
+        availableservices4 = List.from(services);
       });
     } else {
       setState(() {
-        items = ['Service 01', 'Service 02', 'Service 03', 'Service 04'];
-        availableItems1 = List.from(items);
-        availableItems2 = List.from(items);
-        availableItems3 = List.from(items);
-        availableItems4 = List.from(items);
+        services = ['Service 01', 'Service 02', 'Service 03', 'Service 04'];
+        availableservices1 = List.from(services);
+        availableservices2 = List.from(services);
+        availableservices3 = List.from(services);
+        availableservices4 = List.from(services);
         _handyman_id = Handyman_id(id: '655c74a74fe1679dd31d4647');
         RegisterHandymanBody newhandyman = const RegisterHandymanBody(
           first_name: 'Azman',
@@ -120,16 +120,16 @@ class _HandymanHomeState extends State<Handyman_Home> {
   }
 
   CustomDropdownButton<String> buildDropdownButton(int index) {
-    List<String> availableItems = index == 0
-        ? availableItems1
+    List<String> availableservices = index == 0
+        ? availableservices1
         : index == 1
-            ? availableItems2
+            ? availableservices2
             : index == 2
-                ? availableItems3
-                : availableItems4;
+                ? availableservices3
+                : availableservices4;
 
     return CustomDropdownButton<String>(
-      items: availableItems
+      services: availableservices
           .map((String item) => DropdownMenuItem<String>(
                 value: item,
                 child: Text(
@@ -154,24 +154,24 @@ class _HandymanHomeState extends State<Handyman_Home> {
         setState(() {
           if (index == 0) {
             selectedValue1 = value;
-            availableItems2 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            availableservices2 = List.from(services)..remove(value);
+            availableservices3 = List.from(services)..remove(value);
+            availableservices4 = List.from(services)..remove(value);
           } else if (index == 1) {
             selectedValue2 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            availableservices1 = List.from(services)..remove(value);
+            availableservices3 = List.from(services)..remove(value);
+            availableservices4 = List.from(services)..remove(value);
           } else if (index == 2) {
             selectedValue3 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems2 = List.from(items)..remove(value);
-            availableItems4 = List.from(items)..remove(value);
+            availableservices1 = List.from(services)..remove(value);
+            availableservices2 = List.from(services)..remove(value);
+            availableservices4 = List.from(services)..remove(value);
           } else {
             selectedValue4 = value;
-            availableItems1 = List.from(items)..remove(value);
-            availableItems2 = List.from(items)..remove(value);
-            availableItems3 = List.from(items)..remove(value);
+            availableservices1 = List.from(services)..remove(value);
+            availableservices2 = List.from(services)..remove(value);
+            availableservices3 = List.from(services)..remove(value);
           }
         });
       },
@@ -634,13 +634,13 @@ class _HandymanHomeState extends State<Handyman_Home> {
 }
 
 class CustomDropdownButton<T> extends StatelessWidget {
-  final List<DropdownMenuItem<T>> items;
+  final List<DropdownMenuItem<T>> services;
   final T? value;
   final ValueChanged<T?>? onChanged;
   final Widget? hint;
 
   CustomDropdownButton({
-    required this.items,
+    required this.services,
     required this.value,
     required this.onChanged,
     this.hint,
@@ -657,12 +657,12 @@ class CustomDropdownButton<T> extends StatelessWidget {
         child: ButtonTheme(
           alignedDropdown: true,
           child: DropdownButtonFormField<T>(
-            items: items, // Remove the take(3) to show all items
+            items: services, // Remove the take(3) to show all services
             value: value,
             onChanged: onChanged,
             hint: hint,
             selectedItemBuilder: (BuildContext context) {
-              return items.map<Widget>((DropdownMenuItem<T> item) {
+              return services.map<Widget>((DropdownMenuItem<T> item) {
                 return Text(item.value.toString());
               }).toList();
             },

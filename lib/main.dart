@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:handymanservicesystem/utils.dart';
-import 'Screens/landing.dart';
+//import 'Screens/landing.dart';
 import './Screens/handyman-signin.dart';
 import './Screens/handyman-signup.dart';
 //import 'package:http/http.dart' as http;
@@ -8,6 +8,7 @@ import './Screens/handymans-home.dart';
 import './Screens/handyman-profile.dart';
 import 'Screens/handymans-bookings.dart';
 import 'Screens/handymans-accept-service-request.dart';
+import 'Screens/handyman-finish-service-request.dart';
 
 //import 'package:handymanservicesystem/Screens/customer-sign-up.dart';
 // import 'package:handymanservicesystem/prototype/customer-sign-in.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => HandymanPendingrequest(),
+          '/': (context) => Handyman_Service_Complete(),
           Handyman_Sign_In_Screen.RouteName: (context) =>
               Handyman_Sign_In_Screen(),
           Handyman_Sign_Up_Screen.RouteName: (context) =>
@@ -58,6 +59,8 @@ class MyApp extends StatelessWidget {
           Handyman_Bookings.RouteName: (context) => Handyman_Bookings(),
           HandymanPendingrequest.RouteName: (context) =>
               HandymanPendingrequest(),
+          Handyman_Service_Complete.RouteName: (context) =>
+              Handyman_Service_Complete(),
         },
         onGenerateRoute: (settings) {
           return MaterialPageRoute(

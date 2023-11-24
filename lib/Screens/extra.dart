@@ -1,550 +1,1313 @@
-import 'package:flutter/material.dart';
-import 'package:handymanservicesystem/utils.dart';
-
-class ProfilePage extends StatefulWidget {
-  static const RouteName = '/Handyman_ProfilePage';
-
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  @override
-  Widget build(BuildContext context) {
-    double baseWidth = 428;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff0263e0),
-        elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          color: Colors.white,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text(
-          "Profile",
-          style: TextStyle(color: Colors.white),
-        ),
-        centerTitle: true,
-      ),
-      body: Container(
-        width: double.infinity,
-        child: Container(
-          // handymanprofileKUD (115:2097)
-          width: double.infinity,
-          height: 926 * fem,
-          decoration: BoxDecoration(
-            color: Color(0xffe5f0ff),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                // group344F6y (115:2099)
-                left: 0 * fem,
-                top: 0 * fem,
-                child: Container(
-                  padding:
-                      EdgeInsets.fromLTRB(40 * fem, 0 * fem, 40 * fem, 0 * fem),
-                  width: 428 * fem,
-                  height: 270 * fem,
-                  decoration: BoxDecoration(
-                    color: Color(0xff0263e0),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        // autogroup4vreBYM (HsVYV8vBBFPZqo5hPA4vRE)
-                        margin: EdgeInsets.fromLTRB(
-                            12 * fem, 24 * fem, 0 * fem, 0 * fem),
-                        width: 246 * fem,
-                        height: 182.69 * fem,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              // profilethf (115:2101)
-                              left: 0 * fem,
-                              top: 25.4375 * fem,
-                              child: Container(
-                                width: 96 * fem,
-                                height: 137.25 * fem,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff0263e0),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              // namephotooZj (115:2105)
-                              left: 79 * fem,
-                              top: 0 * fem,
-                              child: Container(
-                                width: 167 * fem,
-                                height: 154 * fem,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(64 * fem),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      // imageVhT (115:2106)
-                                      margin: EdgeInsets.fromLTRB(
-                                          0 * fem, 0 * fem, 2 * fem, 4 * fem),
-                                      width: 101 * fem,
-                                      height: 110 * fem,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(64 * fem),
-                                        child: Image.asset(
-                                          'assets/prototype/images/image-ycU.png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      // group384PH3 (115:2107)
-                                      width: double.infinity,
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            // thomaslukasKRb (115:2108)
-                                            margin: EdgeInsets.fromLTRB(0 * fem,
-                                                0 * fem, 8 * fem, 0 * fem),
-                                            child: Text(
-                                              'Thomas Lukas',
-                                              style: SafeGoogleFont(
-                                                'Inter',
-                                                fontSize: 18 * ffem,
-                                                fontWeight: FontWeight.w500,
-                                                height:
-                                                    1.1111111111 * ffem / fem,
-                                                color: Color(0xffffffff),
-                                              ),
-                                            ),
-                                          ),
-                                          Text(
-                                            // thomaslukasemailcomp7T (115:2109)
-                                            'thomaslukas@email.com',
-                                            style: SafeGoogleFont(
-                                              'Inter',
-                                              fontSize: 14 * ffem,
-                                              fontWeight: FontWeight.w500,
-                                              height: 1.4285714286 * ffem / fem,
-                                              color: Color(0xffffffff),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                // autogrouph1xeM7P (HsVXhF4ypQQRvKERiMH1XE)
-                left: 0 * fem,
-                top: 350 * fem,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(
-                      52 * fem, 11 * fem, 54 * fem, 98 * fem),
-                  width: 428 * fem,
-                  height: 556 * fem,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // group388d4u (115:2514)
-                        margin: EdgeInsets.fromLTRB(
-                            2 * fem, 0 * fem, 0 * fem, 50.43 * fem),
-                        width: 320 * fem,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // separatorwLV (115:2515)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 0 * fem, 12 * fem),
-                              width: 320 * fem,
-                              height: 1 * fem,
-                              child: Image.asset(
-                                'assets/prototype/images/separator.png',
-                                width: 320 * fem,
-                                height: 1 * fem,
-                              ),
-                            ),
-                            Container(
-                              // frame391TJq (115:2517)
-                              margin: EdgeInsets.fromLTRB(
-                                  3 * fem, 0 * fem, 1 * fem, 28 * fem),
-                              width: double.infinity,
-                              height: 20 * fem,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // frame385BVj (115:2518)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 147.8 * fem, 0 * fem),
-                                    height: double.infinity,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          // groupvCR (115:2519)
-                                          margin: EdgeInsets.fromLTRB(0 * fem,
-                                              0 * fem, 28 * fem, 0 * fem),
-                                          width: 13.2 * fem,
-                                          height: 20 * fem,
-                                          child: Image.asset(
-                                            'assets/prototype/images/group.png',
-                                            width: 13.2 * fem,
-                                            height: 20 * fem,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                border: InputBorder.none,
-                                                hintText: 'Enter phone number',
-                                                hintStyle: SafeGoogleFont(
-                                                  'Inter',
-                                                  fontSize: 14.4 * ffem,
-                                                  fontWeight: FontWeight.w400,
-                                                  height: 1.25 * ffem / fem,
-                                                  color: Color(0xff4c4c4c),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    // eparrowrightboldN4R (115:2524)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 2.5 * fem, 0 * fem, 2.5 * fem),
-                                    width: 15 * fem,
-                                    height: double.infinity,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              // frame390Vuj (115:2516)
-                              margin: EdgeInsets.fromLTRB(
-                                  2 * fem, 0 * fem, 2 * fem, 0 * fem),
-                              width: double.infinity,
-                              height: 15 * fem,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // frame3903AZ (115:2435)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 36 * fem, 29 * fem),
-                        width: double.infinity,
-                        height: 20 * fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // frame383y4D (115:2436)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 150 * fem, 0 * fem),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // icoutlineinsertphotoW49 (115:2437)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 22 * fem, 0 * fem),
-                                    width: 20 * fem,
-                                    height: 20 * fem,
-                                    child: Image.asset(
-                                      'assets/prototype/images/ic-outline-insert-photo.png',
-                                      width: 20 * fem,
-                                      height: 20 * fem,
-                                    ),
-                                  ),
-                                  Text(
-                                    // service01DjF (115:2439)
-                                    'Service 01',
-                                    style: SafeGoogleFont(
-                                      'Inter',
-                                      fontSize: 16 * ffem,
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25 * ffem / fem,
-                                      color: Color(0xff4c4c4c),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              // eparrowrightboldZYD (115:2440)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 2.5 * fem, 0 * fem, 2.5 * fem),
-                              width: 15 * fem,
-                              height: double.infinity,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // frame391Hj7 (115:2454)
-                        margin: EdgeInsets.fromLTRB(
-                            1 * fem, 0 * fem, 35 * fem, 29 * fem),
-                        width: double.infinity,
-                        height: 20 * fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // frame383QYq (115:2455)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 148 * fem, 0 * fem),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // icoutlineinsertphoto9FX (115:2456)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 22 * fem, 0 * fem),
-                                    width: 20 * fem,
-                                    height: 20 * fem,
-                                    child: Image.asset(
-                                      'assets/prototype/images/ic-outline-insert-photo.png',
-                                      width: 20 * fem,
-                                      height: 20 * fem,
-                                    ),
-                                  ),
-                                  Text(
-                                    // service02G5F (115:2458)
-                                    'Service 02',
-                                    style: SafeGoogleFont(
-                                      'Inter',
-                                      fontSize: 16 * ffem,
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25 * ffem / fem,
-                                      color: Color(0xff4c4c4c),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              // eparrowrightboldc97 (115:2459)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 2.5 * fem, 0 * fem, 2.5 * fem),
-                              width: 15 * fem,
-                              height: double.infinity,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // frame393wx5 (115:2466)
-                        margin: EdgeInsets.fromLTRB(
-                            1 * fem, 0 * fem, 35 * fem, 29 * fem),
-                        width: double.infinity,
-                        height: 20 * fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // frame383GzM (115:2467)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 147 * fem, 0 * fem),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // icoutlineinsertphoto1h3 (115:2468)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 22 * fem, 0 * fem),
-                                    width: 20 * fem,
-                                    height: 20 * fem,
-                                    child: Image.asset(
-                                      'assets/prototype/images/ic-outline-insert-photo.png',
-                                      width: 20 * fem,
-                                      height: 20 * fem,
-                                    ),
-                                  ),
-                                  Text(
-                                    // service037k5 (115:2470)
-                                    'Service 03',
-                                    style: SafeGoogleFont(
-                                      'Inter',
-                                      fontSize: 16 * ffem,
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25 * ffem / fem,
-                                      color: Color(0xff4c4c4c),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              // eparrowrightboldek1 (115:2471)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 2.5 * fem, 0 * fem, 2.5 * fem),
-                              width: 15 * fem,
-                              height: double.infinity,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // frame394PxV (115:2483)
-                        margin: EdgeInsets.fromLTRB(
-                            1 * fem, 0 * fem, 35 * fem, 77.57 * fem),
-                        width: double.infinity,
-                        height: 20 * fem,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // frame383XYu (115:2484)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 0 * fem, 147 * fem, 0 * fem),
-                              height: double.infinity,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // icoutlineinsertphotoGWV (115:2485)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 22 * fem, 0 * fem),
-                                    width: 20 * fem,
-                                    height: 20 * fem,
-                                    child: Image.asset(
-                                      'assets/prototype/images/ic-outline-insert-photo.png',
-                                      width: 20 * fem,
-                                      height: 20 * fem,
-                                    ),
-                                  ),
-                                  Text(
-                                    // service04zBb (115:2487)
-                                    'Service 04',
-                                    style: SafeGoogleFont(
-                                      'Inter',
-                                      fontSize: 16 * ffem,
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25 * ffem / fem,
-                                      color: Color(0xff4c4c4c),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              // eparrowrightboldj9B (115:2488)
-                              margin: EdgeInsets.fromLTRB(
-                                  0 * fem, 2.5 * fem, 0 * fem, 2.5 * fem),
-                              width: 15 * fem,
-                              height: double.infinity,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        // logoutU6m (115:2152)
-                        margin: EdgeInsets.fromLTRB(
-                            3 * fem, 0 * fem, 0 * fem, 0 * fem),
-                        child: Text(
-                          'Logout',
-                          style: SafeGoogleFont(
-                            'Inter',
-                            fontSize: 18 * ffem,
-                            fontWeight: FontWeight.w500,
-                            height: 1.1111111111 * ffem / fem,
-                            color: Color(0xff0263e0),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                // navbara9o (115:2189)
-                left: 0 * fem,
-                top: 874 * fem,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(
-                      77.25 * fem, 8.5 * fem, 63 * fem, 4.36 * fem),
-                  width: 428 * fem,
-                  height: 52 * fem,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Color(0xffe0e0e0)),
-                    color: Color(0xffffffff),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        // frame7FWq (I115:2189;23:11955)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 99.25 * fem, 6.14 * fem),
-                        width: 25.5 * fem,
-                        height: 21 * fem,
-                        child: Image.asset(
-                          'assets/prototype/images/frame-7-N8q.png',
-                          width: 25.5 * fem,
-                          height: 21 * fem,
-                        ),
-                      ),
-                      Container(
-                        // frame6mVB (I115:2189;23:11957)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 91 * fem, 6.14 * fem),
-                        width: 24 * fem,
-                        height: 24 * fem,
-                        child: Image.asset(
-                          'assets/prototype/images/frame-6-jpM.png',
-                          width: 24 * fem,
-                          height: 24 * fem,
-                        ),
-                      ),
-                      Container(
-                        // frame5so7 (I115:2189;23:11959)
-                        width: 48 * fem,
-                        height: 39.14 * fem,
-                        child: Image.asset(
-                          'assets/prototype/images/frame-5-k1f.png',
-                          width: 48 * fem,
-                          height: 39.14 * fem,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+ 
+      
+//       Container(
+//         width: double.infinity,
+//         child: Container(
+//           // handymansbookingsYRv (115:2680)
+//           width: double.infinity,
+//           height: 926 * fem,
+//           decoration: BoxDecoration(
+//             color: Color(0xfff7e8e8),
+//           ),
+//           child: Stack(
+//             children: [
+//               // Positioned(
+//               //   // autogroupyw7ngHE (HsVZSSfMbwtqovkLNSyw7N)
+//               //   left: 0 * fem,
+//               //   top: 102 * fem,
+//               //   child: Container(
+//               //     padding: EdgeInsets.fromLTRB(
+//               //         54 * fem, 20 * fem, 44 * fem, 64 * fem),
+//               //     width: 428 * fem,
+//               //     height: 824 * fem,
+//               //     child: Column(
+//               //       crossAxisAlignment: CrossAxisAlignment.center,
+//               //       children: [
+//               //         Container(
+//               //           // searchadW (115:2681)
+//               //           margin: EdgeInsets.fromLTRB(
+//               //               0 * fem, 0 * fem, 10 * fem, 41 * fem),
+//               //           width: 320 * fem,
+//               //           height: 36 * fem,
+//               //           child: Stack(
+//               //             children: [
+//               //               Positioned(
+//               //                 // fieldcontentcKJ (I115:2681;2453:48623;819:9527)
+//               //                 left: 0 * fem,
+//               //                 top: 0 * fem,
+//               //                 child: Container(
+//               //                   width: 320 * fem,
+//               //                   height: 36 * fem,
+//               //                   decoration: BoxDecoration(
+//               //                     border: Border.all(color: Color(0xff8891aa)),
+//               //                     color: Color(0xffffffff),
+//               //                     borderRadius: BorderRadius.circular(4 * fem),
+//               //                   ),
+//               //                   child: Row(
+//               //                     crossAxisAlignment: CrossAxisAlignment.center,
+//               //                     children: [
+//               //                       Container(
+//               //                         // autogroup8df6hLk (HsVZcc36Dvx8CJ58zq8dF6)
+//               //                         margin: EdgeInsets.fromLTRB(
+//               //                             0 * fem, 0 * fem, 232 * fem, 0 * fem),
+//               //                         padding: EdgeInsets.fromLTRB(
+//               //                             12 * fem, 8 * fem, 6 * fem, 8 * fem),
+//               //                         width: 35 * fem,
+//               //                         height: double.infinity,
+//               //                         child: Container(
+//               //                           // fieldtextdEQ (I115:2681;2453:48623;819:9529)
+//               //                           width: double.infinity,
+//               //                           height: double.infinity,
+//               //                           child: Center(
+//               //                             child: Text(
+//               //                               'All',
+//               //                               style: SafeGoogleFont(
+//               //                                 'Inter',
+//               //                                 fontSize: 14 * ffem,
+//               //                                 fontWeight: FontWeight.w500,
+//               //                                 height: 1.4285714286 * ffem / fem,
+//               //                                 color: Color(0xff4c4c4c),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                         ),
+//               //                       ),
+//               //                       // Container(
+//               //                       //   // selecticongyN (I115:2681;2453:48623;905:5200)
+//               //                       //   margin: EdgeInsets.fromLTRB(
+//               //                       //       0 * fem, 3 * fem, 9 * fem, 0 * fem),
+//               //                       //   width: 9 * fem,
+//               //                       //   height: 7 * fem,
+//               //                       //   child: Image.asset(
+//               //                       //     'assets/prototype/images/select-icon-ahe.png',
+//               //                       //     width: 9 * fem,
+//               //                       //     height: 7 * fem,
+//               //                       //   ),
+//               //                       // ),
+//               //                       // Container(
+//               //                       //   // suffixnmW (I115:2681;2453:48623;819:9530)
+//               //                       //   width: 35 * fem,
+//               //                       //   height: 36 * fem,
+//               //                       //   child: Image.asset(
+//               //                       //     'assets/prototype/images/suffix--HDi.png',
+//               //                       //     width: 35 * fem,
+//               //                       //     height: 36 * fem,
+//               //                       //   ),
+//               //                       // ),
+//               //                     ],
+//               //                   ),
+//               //                 ),
+//               //               ),
+//               //             ],
+//               //           ),
+//               //         ),
+//               //         Container(
+//               //           // bookingcardsXj6 (116:1459)
+//               //           margin: EdgeInsets.fromLTRB(
+//               //               10 * fem, 0 * fem, 0 * fem, 0 * fem),
+//               //           width: 320 * fem,
+//               //           child: Column(
+//               //             crossAxisAlignment: CrossAxisAlignment.center,
+//               //             children: [
+//               //               Container(
+//               //                 // cardfKW (116:1460)
+//               //                 margin: EdgeInsets.fromLTRB(
+//               //                     0 * fem, 0 * fem, 0 * fem, 12 * fem),
+//               //                 padding: EdgeInsets.fromLTRB(
+//               //                     0 * fem, 0 * fem, 0 * fem, 0.22 * fem),
+//               //                 width: double.infinity,
+//               //                 decoration: BoxDecoration(
+//               //                   color: Color(0xffffffff),
+//               //                   borderRadius:
+//               //                       BorderRadius.circular(3.7233428955 * fem),
+//               //                   boxShadow: [
+//               //                     BoxShadow(
+//               //                       color: Color(0x44000000),
+//               //                       offset: Offset(0 * fem, 0 * fem),
+//               //                       blurRadius: 1.8616714478 * fem,
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //                 child: Column(
+//               //                   crossAxisAlignment: CrossAxisAlignment.center,
+//               //                   children: [
+//               //                     Container(
+//               //                       // frame360jaG (116:1461)
+//               //                       margin: EdgeInsets.fromLTRB(
+//               //                           0 * fem, 0 * fem, 0 * fem, 20 * fem),
+//               //                       padding: EdgeInsets.fromLTRB(
+//               //                           15 * fem, 5 * fem, 15 * fem, 5 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 30 * fem,
+//               //                       decoration: BoxDecoration(
+//               //                         color: Color(0x33d61f1f),
+//               //                       ),
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.center,
+//               //                         children: [
+//               //                           Container(
+//               //                             // wallrepairex8 (116:1462)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 0 * fem, 143 * fem, 0 * fem),
+//               //                             child: Text(
+//               //                               'Wall repair',
+//               //                               textAlign: TextAlign.right,
+//               //                               style: SafeGoogleFont(
+//               //                                 'Inter',
+//               //                                 fontSize: 14 * ffem,
+//               //                                 fontWeight: FontWeight.w500,
+//               //                                 height: 1.4285714286 * ffem / fem,
+//               //                                 color: Color(0xff121c2d),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                           Container(
+//               //                             // frame370LKA (116:1463)
+//               //                             width: 76 * fem,
+//               //                             height: double.infinity,
+//               //                             decoration: BoxDecoration(
+//               //                               color: Color(0xffd61f1f),
+//               //                               borderRadius:
+//               //                                   BorderRadius.circular(16 * fem),
+//               //                             ),
+//               //                             child: Center(
+//               //                               child: Text(
+//               //                                 'In Progress',
+//               //                                 style: SafeGoogleFont(
+//               //                                   'Inter',
+//               //                                   fontSize: 10 * ffem,
+//               //                                   fontWeight: FontWeight.w500,
+//               //                                   height: 2 * ffem / fem,
+//               //                                   color: Color(0xffffffff),
+//               //                                 ),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                     Container(
+//               //                       // autogroup84rc1w6 (HsVZsWmv255KQCH3FE84rC)
+//               //                       margin: EdgeInsets.fromLTRB(23 * fem,
+//               //                           0 * fem, 13.77 * fem, 0 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 167.78 * fem,
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.start,
+//               //                         children: [
+//               //                           Container(
+//               //                             // autogroupxpkaKgt (HsVZxG91CE9EDjA8sExpKa)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 0 * fem, 50 * fem, 0 * fem),
+//               //                             width: 126 * fem,
+//               //                             height: double.infinity,
+//               //                             child: Stack(
+//               //                               children: [
+//               //                                 Positioned(
+//               //                                   // group3783Mz (116:1468)
+//               //                                   left: 0 * fem,
+//               //                                   top: 0 * fem,
+//               //                                   child: Container(
+//               //                                     padding: EdgeInsets.fromLTRB(
+//               //                                         1 * fem,
+//               //                                         0 * fem,
+//               //                                         0 * fem,
+//               //                                         72 * fem),
+//               //                                     width: 113 * fem,
+//               //                                     height: 167.78 * fem,
+//               //                                     child: Column(
+//               //                                       crossAxisAlignment:
+//               //                                           CrossAxisAlignment
+//               //                                               .start,
+//               //                                       children: [
+//               //                                         Container(
+//               //                                           // date23mar2022MtU (116:1476)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   3 * fem,
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   11 * fem),
+//               //                                           child: RichText(
+//               //                                             text: TextSpan(
+//               //                                               style:
+//               //                                                   SafeGoogleFont(
+//               //                                                 'Inter',
+//               //                                                 fontSize:
+//               //                                                     12 * ffem,
+//               //                                                 fontWeight:
+//               //                                                     FontWeight
+//               //                                                         .w400,
+//               //                                                 height:
+//               //                                                     1.6666666667 *
+//               //                                                         ffem /
+//               //                                                         fem,
+//               //                                                 color: Color(
+//               //                                                     0xff4c4c4c),
+//               //                                               ),
+//               //                                               children: [
+//               //                                                 TextSpan(
+//               //                                                   text: 'Date: ',
+//               //                                                 ),
+//               //                                                 TextSpan(
+//               //                                                   text:
+//               //                                                       '23 Mar, 2022',
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         12 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.6666666667 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff606b85),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ],
+//               //                                             ),
+//               //                                           ),
+//               //                                         ),
+//               //                                         Container(
+//               //                                           // frame3Hfe (116:1469)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   3 * fem,
+//               //                                                   0 * fem,
+//               //                                                   11.35 * fem,
+//               //                                                   23 * fem),
+//               //                                           width: double.infinity,
+//               //                                           child: Row(
+//               //                                             crossAxisAlignment:
+//               //                                                 CrossAxisAlignment
+//               //                                                     .center,
+//               //                                             children: [
+//               //                                               Container(
+//               //                                                 // bytesizelocationdUc (116:1470)
+//               //                                                 margin: EdgeInsets
+//               //                                                     .fromLTRB(
+//               //                                                         0 * fem,
+//               //                                                         0 * fem,
+//               //                                                         2.5 * fem,
+//               //                                                         0 * fem),
+//               //                                                 width: 9.15 * fem,
+//               //                                                 height:
+//               //                                                     13.86 * fem,
+//               //                                                 child:
+//               //                                                     Image.asset(
+//               //                                                   'assets/prototype/images/bytesize-location-3qS.png',
+//               //                                                   width:
+//               //                                                       9.15 * fem,
+//               //                                                   height:
+//               //                                                       13.86 * fem,
+//               //                                                 ),
+//               //                                               ),
+//               //                                               Center(
+//               //                                                 // chestnutikx (116:1475)
+//               //                                                 child: Text(
+//               //                                                   '38 Chestnut ',
+//               //                                                   textAlign:
+//               //                                                       TextAlign
+//               //                                                           .center,
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         14 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.4285714286 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff8891aa),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ),
+//               //                                             ],
+//               //                                           ),
+//               //                                         ),
+//               //                                         Container(
+//               //                                           // imageSgx (116:1479)
+//               //                                           width: 20 * fem,
+//               //                                           height: 21.78 * fem,
+//               //                                           child: ClipRRect(
+//               //                                             borderRadius:
+//               //                                                 BorderRadius
+//               //                                                     .circular(
+//               //                                                         64 * fem),
+//               //                                             child: Image.asset(
+//               //                                               'assets/prototype/images/image-EqE.png',
+//               //                                               fit: BoxFit.cover,
+//               //                                             ),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ],
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Positioned(
+//               //                                   // thomaslukasywn (116:1480)
+//               //                                   left: 28 * fem,
+//               //                                   top: 78 * fem,
+//               //                                   child: Center(
+//               //                                     child: Align(
+//               //                                       child: SizedBox(
+//               //                                         width: 98 * fem,
+//               //                                         height: 14 * fem,
+//               //                                         child: Text(
+//               //                                           'THOMAS LUKAS',
+//               //                                           textAlign:
+//               //                                               TextAlign.center,
+//               //                                           style: SafeGoogleFont(
+//               //                                             'Inter',
+//               //                                             fontSize: 14 * ffem,
+//               //                                             fontWeight:
+//               //                                                 FontWeight.w500,
+//               //                                             height: 0.9437169347 *
+//               //                                                 ffem /
+//               //                                                 fem,
+//               //                                             color:
+//               //                                                 Color(0xff4c4c4c),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                               ],
+//               //                             ),
+//               //                           ),
+//               //                           Container(
+//               //                             // autogroupzia4dWY (HsVa8FrMFHy9RGbHeXziA4)
+//               //                             width: 107.23 * fem,
+//               //                             child: Column(
+//               //                               crossAxisAlignment:
+//               //                                   CrossAxisAlignment.end,
+//               //                               children: [
+//               //                                 Container(
+//               //                                   // categoryyqJ (116:1465)
+//               //                                   margin: EdgeInsets.fromLTRB(
+//               //                                       0 * fem,
+//               //                                       0 * fem,
+//               //                                       0.23 * fem,
+//               //                                       44 * fem),
+//               //                                   width: double.infinity,
+//               //                                   decoration: BoxDecoration(
+//               //                                     borderRadius:
+//               //                                         BorderRadius.circular(
+//               //                                             5 * fem),
+//               //                                   ),
+//               //                                   child: Center(
+//               //                                     // drywallinstallationXbv (116:1466)
+//               //                                     child: SizedBox(
+//               //                                       width: 107 * fem,
+//               //                                       height: 82 * fem,
+//               //                                       child: Image.asset(
+//               //                                         'assets/prototype/images/drywall-installation.png',
+//               //                                         fit: BoxFit.cover,
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Container(
+//               //                                   // group379dQ4 (116:1454)
+//               //                                   width: 103.23 * fem,
+//               //                                   height: 22 * fem,
+//               //                                   decoration: BoxDecoration(
+//               //                                     borderRadius:
+//               //                                         BorderRadius.circular(
+//               //                                             4 * fem),
+//               //                                   ),
+//               //                                   child: Container(
+//               //                                     // buttonlargeaKJ (116:1455)
+//               //                                     width: double.infinity,
+//               //                                     height: double.infinity,
+//               //                                     decoration: BoxDecoration(
+//               //                                       color: Color(0xff00d215),
+//               //                                       borderRadius:
+//               //                                           BorderRadius.circular(
+//               //                                               4 * fem),
+//               //                                     ),
+//               //                                     child: Center(
+//               //                                       child: Text(
+//               //                                         'Finish',
+//               //                                         textAlign:
+//               //                                             TextAlign.center,
+//               //                                         style: SafeGoogleFont(
+//               //                                           'Inter',
+//               //                                           fontSize: 12 * ffem,
+//               //                                           fontWeight:
+//               //                                               FontWeight.w500,
+//               //                                           height: 1.6666666667 *
+//               //                                               ffem /
+//               //                                               fem,
+//               //                                           color:
+//               //                                               Color(0xffffffff),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                               ],
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //               ),
+//               //               Container(
+//               //                 // card5mr (116:1508)
+//               //                 margin: EdgeInsets.fromLTRB(
+//               //                     0 * fem, 0 * fem, 0 * fem, 22 * fem),
+//               //                 padding: EdgeInsets.fromLTRB(
+//               //                     0 * fem, 0 * fem, 0 * fem, 15 * fem),
+//               //                 width: double.infinity,
+//               //                 decoration: BoxDecoration(
+//               //                   color: Color(0xffffffff),
+//               //                   borderRadius:
+//               //                       BorderRadius.circular(3.7233428955 * fem),
+//               //                   boxShadow: [
+//               //                     BoxShadow(
+//               //                       color: Color(0x44000000),
+//               //                       offset: Offset(0 * fem, 0 * fem),
+//               //                       blurRadius: 1.8616714478 * fem,
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //                 child: Column(
+//               //                   crossAxisAlignment: CrossAxisAlignment.center,
+//               //                   children: [
+//               //                     Container(
+//               //                       // frame360mPn (116:1509)
+//               //                       margin: EdgeInsets.fromLTRB(
+//               //                           0 * fem, 0 * fem, 0 * fem, 10 * fem),
+//               //                       padding: EdgeInsets.fromLTRB(
+//               //                           15 * fem, 5 * fem, 15 * fem, 5 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 30 * fem,
+//               //                       decoration: BoxDecoration(
+//               //                         color: Color(0xb2cacdd8),
+//               //                       ),
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.center,
+//               //                         children: [
+//               //                           Container(
+//               //                             // wallrepairFpk (116:1510)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 0 * fem, 157 * fem, 0 * fem),
+//               //                             child: Text(
+//               //                               'Wall repair',
+//               //                               textAlign: TextAlign.right,
+//               //                               style: SafeGoogleFont(
+//               //                                 'Inter',
+//               //                                 fontSize: 14 * ffem,
+//               //                                 fontWeight: FontWeight.w500,
+//               //                                 height: 1.4285714286 * ffem / fem,
+//               //                                 color: Color(0xff121c2d),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                           Container(
+//               //                             // frame370z1e (116:1511)
+//               //                             width: 62 * fem,
+//               //                             height: double.infinity,
+//               //                             decoration: BoxDecoration(
+//               //                               color: Color(0xff0263e0),
+//               //                               borderRadius:
+//               //                                   BorderRadius.circular(16 * fem),
+//               //                             ),
+//               //                             child: Center(
+//               //                               child: Text(
+//               //                                 'Pending',
+//               //                                 style: SafeGoogleFont(
+//               //                                   'Inter',
+//               //                                   fontSize: 10 * ffem,
+//               //                                   fontWeight: FontWeight.w500,
+//               //                                   height: 2 * ffem / fem,
+//               //                                   color: Color(0xffffffff),
+//               //                                 ),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                     Container(
+//               //                       // autogroupfm3v6aU (HsVcLXVxFyQR94KjLUFM3v)
+//               //                       margin: EdgeInsets.fromLTRB(23 * fem,
+//               //                           0 * fem, 14.77 * fem, 0 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 160 * fem,
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.center,
+//               //                         children: [
+//               //                           Container(
+//               //                             // autogroup7fuzC7i (HsVcUrbQdrvgULrMet7Fuz)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 8.58 * fem, 48 * fem, 5 * fem),
+//               //                             width: 127 * fem,
+//               //                             height: double.infinity,
+//               //                             child: Stack(
+//               //                               children: [
+//               //                                 Positioned(
+//               //                                   // imageXfn (116:1520)
+//               //                                   left: 0 * fem,
+//               //                                   top: 73.4174804688 * fem,
+//               //                                   child: Align(
+//               //                                     child: SizedBox(
+//               //                                       width: 20 * fem,
+//               //                                       height: 21.78 * fem,
+//               //                                       child: ClipRRect(
+//               //                                         borderRadius:
+//               //                                             BorderRadius.circular(
+//               //                                                 64 * fem),
+//               //                                         child: Image.asset(
+//               //                                           'assets/prototype/images/image.png',
+//               //                                           fit: BoxFit.cover,
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Positioned(
+//               //                                   // thomaslukasdip (116:1521)
+//               //                                   left: 29 * fem,
+//               //                                   top: 81.4174804688 * fem,
+//               //                                   child: Center(
+//               //                                     child: Align(
+//               //                                       child: SizedBox(
+//               //                                         width: 98 * fem,
+//               //                                         height: 14 * fem,
+//               //                                         child: Text(
+//               //                                           'THOMAS LUKAS',
+//               //                                           textAlign:
+//               //                                               TextAlign.center,
+//               //                                           style: SafeGoogleFont(
+//               //                                             'Inter',
+//               //                                             fontSize: 14 * ffem,
+//               //                                             fontWeight:
+//               //                                                 FontWeight.w500,
+//               //                                             height: 0.9437169347 *
+//               //                                                 ffem /
+//               //                                                 fem,
+//               //                                             color:
+//               //                                                 Color(0xff4c4c4c),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Positioned(
+//               //                                   // group378WGp (116:1523)
+//               //                                   left: 0 * fem,
+//               //                                   top: 0 * fem,
+//               //                                   child: Container(
+//               //                                     padding: EdgeInsets.fromLTRB(
+//               //                                         4 * fem,
+//               //                                         0 * fem,
+//               //                                         0 * fem,
+//               //                                         97.39 * fem),
+//               //                                     width: 113 * fem,
+//               //                                     height: 145.42 * fem,
+//               //                                     child: Column(
+//               //                                       crossAxisAlignment:
+//               //                                           CrossAxisAlignment
+//               //                                               .center,
+//               //                                       children: [
+//               //                                         Container(
+//               //                                           // date23mar2022zhn (116:1531)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   8.02 * fem),
+//               //                                           child: RichText(
+//               //                                             text: TextSpan(
+//               //                                               style:
+//               //                                                   SafeGoogleFont(
+//               //                                                 'Inter',
+//               //                                                 fontSize:
+//               //                                                     12 * ffem,
+//               //                                                 fontWeight:
+//               //                                                     FontWeight
+//               //                                                         .w400,
+//               //                                                 height:
+//               //                                                     1.6666666667 *
+//               //                                                         ffem /
+//               //                                                         fem,
+//               //                                                 color: Color(
+//               //                                                     0xff4c4c4c),
+//               //                                               ),
+//               //                                               children: [
+//               //                                                 TextSpan(
+//               //                                                   text: 'Date: ',
+//               //                                                 ),
+//               //                                                 TextSpan(
+//               //                                                   text:
+//               //                                                       '23 Mar, 2022',
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         12 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.6666666667 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff606b85),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ],
+//               //                                             ),
+//               //                                           ),
+//               //                                         ),
+//               //                                         Container(
+//               //                                           // frame3nNk (116:1524)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   11.35 * fem,
+//               //                                                   0 * fem),
+//               //                                           width: double.infinity,
+//               //                                           child: Row(
+//               //                                             crossAxisAlignment:
+//               //                                                 CrossAxisAlignment
+//               //                                                     .center,
+//               //                                             children: [
+//               //                                               Container(
+//               //                                                 // bytesizelocationL9N (116:1525)
+//               //                                                 margin: EdgeInsets
+//               //                                                     .fromLTRB(
+//               //                                                         0 * fem,
+//               //                                                         0 * fem,
+//               //                                                         2.5 * fem,
+//               //                                                         0 * fem),
+//               //                                                 width: 9.15 * fem,
+//               //                                                 height:
+//               //                                                     13.86 * fem,
+//               //                                                 child:
+//               //                                                     Image.asset(
+//               //                                                   'assets/prototype/images/bytesize-location-184.png',
+//               //                                                   width:
+//               //                                                       9.15 * fem,
+//               //                                                   height:
+//               //                                                       13.86 * fem,
+//               //                                                 ),
+//               //                                               ),
+//               //                                               Center(
+//               //                                                 // chestnutqbv (116:1530)
+//               //                                                 child: Text(
+//               //                                                   '38 Chestnut ',
+//               //                                                   textAlign:
+//               //                                                       TextAlign
+//               //                                                           .center,
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         14 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.4285714286 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff8891aa),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ),
+//               //                                             ],
+//               //                                           ),
+//               //                                         ),
+//               //                                       ],
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+              //                                 Positioned(
+              //                                   // frame368yy2 (116:1536)
+              //                                   left: 4 * fem,
+              //                                   top: 126.4174804688 * fem,
+              //                                   child: Container(
+              //                                     width: 66 * fem,
+              //                                     height: 20 * fem,
+              //                                     child: Row(
+              //                                       crossAxisAlignment:
+              //                                           CrossAxisAlignment
+              //                                               .center,
+              //                                       children: [
+              //                                         Container(
+              //                                           // claritycancelline7pL (116:1537)
+              //                                           margin:
+              //                                               EdgeInsets.fromLTRB(
+              //                                                   0 * fem,
+              //                                                   0 * fem,
+              //                                                   5 * fem,
+              //                                                   0 * fem),
+              //                                           width: 18 * fem,
+              //                                           height: 18 * fem,
+              //                                           child: Image.asset(
+              //                                             'assets/prototype/images/clarity-cancel-line-Vv8.png',
+              //                                             width: 18 * fem,
+              //                                             height: 18 * fem,
+              //                                           ),
+              //                                         ),
+              //                                         Text(
+              //                                           // cancelSbi (116:1540)
+              //                                           'Cancel ',
+              //                                           style: SafeGoogleFont(
+              //                                             'Inter',
+              //                                             fontSize: 12 * ffem,
+              //                                             fontWeight:
+              //                                                 FontWeight.w400,
+              //                                             height: 1.6666666667 *
+              //                                                 ffem /
+              //                                                 fem,
+              //                                             color:
+              //                                                 Color(0xffd61f1f),
+              //                                           ),
+              //                                         ),
+              //                                       ],
+              //                                     ),
+              //                                   ),
+              //                                 ),
+              //                               ],
+              //                             ),
+              //                           ),
+//               //                           Container(
+//               //                             // autogroupbuzymtt (HsVciMCvcCbGbDzDD2buzY)
+//               //                             width: 107.23 * fem,
+//               //                             height: double.infinity,
+//               //                             child: Column(
+//               //                               crossAxisAlignment:
+//               //                                   CrossAxisAlignment.end,
+//               //                               children: [
+//               //                                 Container(
+//               //                                   // categoryVK6 (116:1513)
+//               //                                   margin: EdgeInsets.fromLTRB(
+//               //                                       0 * fem,
+//               //                                       0 * fem,
+//               //                                       0.23 * fem,
+//               //                                       56 * fem),
+//               //                                   width: double.infinity,
+//               //                                   decoration: BoxDecoration(
+//               //                                     borderRadius:
+//               //                                         BorderRadius.circular(
+//               //                                             5 * fem),
+//               //                                   ),
+//               //                                   child: Center(
+//               //                                     // drywallinstallation12Y (116:1514)
+//               //                                     child: SizedBox(
+//               //                                       width: 107 * fem,
+//               //                                       height: 82 * fem,
+//               //                                       child: Image.asset(
+//               //                                         'assets/prototype/images/drywall-installation-5WG.png',
+//               //                                         fit: BoxFit.cover,
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Container(
+//               //                                   // group3809Pe (116:1533)
+//               //                                   width: 103.23 * fem,
+//               //                                   height: 22 * fem,
+//               //                                   decoration: BoxDecoration(
+//               //                                     borderRadius:
+//               //                                         BorderRadius.circular(
+//               //                                             4 * fem),
+//               //                                   ),
+//               //                                   child: Container(
+//               //                                     // buttonlargeVyJ (116:1534)
+//               //                                     width: double.infinity,
+//               //                                     height: double.infinity,
+//               //                                     decoration: BoxDecoration(
+//               //                                       color: Color(0xff00d215),
+//               //                                       borderRadius:
+//               //                                           BorderRadius.circular(
+//               //                                               4 * fem),
+//               //                                     ),
+//               //                                     child: Center(
+//               //                                       child: Text(
+//               //                                         'Accept',
+//               //                                         textAlign:
+//               //                                             TextAlign.center,
+//               //                                         style: SafeGoogleFont(
+//               //                                           'Inter',
+//               //                                           fontSize: 12 * ffem,
+//               //                                           fontWeight:
+//               //                                               FontWeight.w500,
+//               //                                           height: 1.6666666667 *
+//               //                                               ffem /
+//               //                                               fem,
+//               //                                           color:
+//               //                                               Color(0xffffffff),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                               ],
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //               ),
+//               //               Container(
+//               //                 // cardZiG (116:1486)
+//               //                 width: double.infinity,
+//               //                 height: 220 * fem,
+//               //                 decoration: BoxDecoration(
+//               //                   color: Color(0xffffffff),
+//               //                   borderRadius:
+//               //                       BorderRadius.circular(3.7233428955 * fem),
+//               //                   boxShadow: [
+//               //                     BoxShadow(
+//               //                       color: Color(0x44000000),
+//               //                       offset: Offset(0 * fem, 0 * fem),
+//               //                       blurRadius: 1.8616714478 * fem,
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //                 child: Column(
+//               //                   crossAxisAlignment: CrossAxisAlignment.center,
+//               //                   children: [
+//               //                     Container(
+//               //                       // frame360EpQ (116:1487)
+//               //                       margin: EdgeInsets.fromLTRB(
+//               //                           0 * fem, 0 * fem, 0 * fem, 20 * fem),
+//               //                       padding: EdgeInsets.fromLTRB(
+//               //                           15 * fem, 5 * fem, 15 * fem, 5 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 30 * fem,
+//               //                       decoration: BoxDecoration(
+//               //                         color: Color(0xd3d3b54e),
+//               //                       ),
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.center,
+//               //                         children: [
+//               //                           Container(
+//               //                             // wallrepairLcY (116:1488)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 0 * fem, 143 * fem, 0 * fem),
+//               //                             child: Text(
+//               //                               'Wall repair',
+//               //                               textAlign: TextAlign.right,
+//               //                               style: SafeGoogleFont(
+//               //                                 'Inter',
+//               //                                 fontSize: 14 * ffem,
+//               //                                 fontWeight: FontWeight.w500,
+//               //                                 height: 1.4285714286 * ffem / fem,
+//               //                                 color: Color(0xff121c2d),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                           Container(
+//               //                             // frame370c4G (116:1489)
+//               //                             width: 76 * fem,
+//               //                             height: double.infinity,
+//               //                             decoration: BoxDecoration(
+//               //                               color: Color(0xffd61f1f),
+//               //                               borderRadius:
+//               //                                   BorderRadius.circular(16 * fem),
+//               //                             ),
+//               //                             child: Center(
+//               //                               child: Text(
+//               //                                 'Completed',
+//               //                                 style: SafeGoogleFont(
+//               //                                   'Inter',
+//               //                                   fontSize: 10 * ffem,
+//               //                                   fontWeight: FontWeight.w500,
+//               //                                   height: 2 * ffem / fem,
+//               //                                   color: Color(0xffffffff),
+//               //                                 ),
+//               //                               ),
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                     Container(
+//               //                       // autogroup9stgUMN (HsVaspS6fHjAjByRU79Stg)
+//               //                       margin: EdgeInsets.fromLTRB(
+//               //                           23 * fem, 0 * fem, 14 * fem, 0 * fem),
+//               //                       width: double.infinity,
+//               //                       height: 167.78 * fem,
+//               //                       child: Row(
+//               //                         crossAxisAlignment:
+//               //                             CrossAxisAlignment.start,
+//               //                         children: [
+//               //                           Container(
+//               //                             // autogroup3p3eoeY (HsVaz4kgwhsNE9sPhv3P3E)
+//               //                             margin: EdgeInsets.fromLTRB(0 * fem,
+//               //                                 0 * fem, 50 * fem, 0 * fem),
+//               //                             width: 126 * fem,
+//               //                             height: double.infinity,
+//               //                             child: Stack(
+//               //                               children: [
+//               //                                 Positioned(
+//               //                                   // group3789TW (116:1494)
+//               //                                   left: 0 * fem,
+//               //                                   top: 0 * fem,
+//               //                                   child: Container(
+//               //                                     padding: EdgeInsets.fromLTRB(
+//               //                                         0 * fem,
+//               //                                         0 * fem,
+//               //                                         0 * fem,
+//               //                                         45 * fem),
+//               //                                     width: 113 * fem,
+//               //                                     height: 167.78 * fem,
+//               //                                     child: Column(
+//               //                                       crossAxisAlignment:
+//               //                                           CrossAxisAlignment
+//               //                                               .start,
+//               //                                       children: [
+//               //                                         Container(
+//               //                                           // date23mar2022qLL (116:1502)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   4 * fem,
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   11 * fem),
+//               //                                           child: RichText(
+//               //                                             text: TextSpan(
+//               //                                               style:
+//               //                                                   SafeGoogleFont(
+//               //                                                 'Inter',
+//               //                                                 fontSize:
+//               //                                                     12 * ffem,
+//               //                                                 fontWeight:
+//               //                                                     FontWeight
+//               //                                                         .w400,
+//               //                                                 height:
+//               //                                                     1.6666666667 *
+//               //                                                         ffem /
+//               //                                                         fem,
+//               //                                                 color: Color(
+//               //                                                     0xff4c4c4c),
+//               //                                               ),
+//               //                                               children: [
+//               //                                                 TextSpan(
+//               //                                                   text: 'Date: ',
+//               //                                                 ),
+//               //                                                 TextSpan(
+//               //                                                   text:
+//               //                                                       '23 Mar, 2022',
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         12 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.6666666667 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff606b85),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ],
+//               //                                             ),
+//               //                                           ),
+//               //                                         ),
+//               //                                         Container(
+//               //                                           // frame3EdN (116:1495)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   4 * fem,
+//               //                                                   0 * fem,
+//               //                                                   11.35 * fem,
+//               //                                                   50 * fem),
+//               //                                           width: double.infinity,
+//               //                                           child: Row(
+//               //                                             crossAxisAlignment:
+//               //                                                 CrossAxisAlignment
+//               //                                                     .center,
+//               //                                             children: [
+//               //                                               Container(
+//               //                                                 // bytesizelocationahE (116:1496)
+//               //                                                 margin: EdgeInsets
+//               //                                                     .fromLTRB(
+//               //                                                         0 * fem,
+//               //                                                         0 * fem,
+//               //                                                         2.5 * fem,
+//               //                                                         0 * fem),
+//               //                                                 width: 9.15 * fem,
+//               //                                                 height:
+//               //                                                     13.86 * fem,
+//               //                                                 child:
+//               //                                                     Image.asset(
+//               //                                                   'assets/prototype/images/bytesize-location-Lvk.png',
+//               //                                                   width:
+//               //                                                       9.15 * fem,
+//               //                                                   height:
+//               //                                                       13.86 * fem,
+//               //                                                 ),
+//               //                                               ),
+//               //                                               Center(
+//               //                                                 // chestnutgkG (116:1501)
+//               //                                                 child: Text(
+//               //                                                   '38 Chestnut ',
+//               //                                                   textAlign:
+//               //                                                       TextAlign
+//               //                                                           .center,
+//               //                                                   style:
+//               //                                                       SafeGoogleFont(
+//               //                                                     'Inter',
+//               //                                                     fontSize:
+//               //                                                         14 * ffem,
+//               //                                                     fontWeight:
+//               //                                                         FontWeight
+//               //                                                             .w400,
+//               //                                                     height:
+//               //                                                         1.4285714286 *
+//               //                                                             ffem /
+//               //                                                             fem,
+//               //                                                     color: Color(
+//               //                                                         0xff8891aa),
+//               //                                                   ),
+//               //                                                 ),
+//               //                                               ),
+//               //                                             ],
+//               //                                           ),
+//               //                                         ),
+//               //                                         Container(
+//               //                                           // autogroupfgmvPua (HsVbAtmyqMr7MpkoiefGMv)
+//               //                                           margin:
+//               //                                               EdgeInsets.fromLTRB(
+//               //                                                   0 * fem,
+//               //                                                   0 * fem,
+//               //                                                   93 * fem,
+//               //                                                   0 * fem),
+//               //                                           decoration:
+//               //                                               BoxDecoration(
+//               //                                             borderRadius:
+//               //                                                 BorderRadius
+//               //                                                     .circular(
+//               //                                                         64 * fem),
+//               //                                             image:
+//               //                                                 DecorationImage(
+//               //                                               fit: BoxFit.cover,
+//               //                                               image: AssetImage(
+//               //                                                 'assets/prototype/images/image-bg.png',
+//               //                                               ),
+//               //                                             ),
+//               //                                           ),
+//               //                                           child: Center(
+//               //                                             // imageud2 (116:1505)
+//               //                                             child: SizedBox(
+//               //                                               width: 20 * fem,
+//               //                                               height: 21.78 * fem,
+//               //                                               child: ClipRRect(
+//               //                                                 borderRadius:
+//               //                                                     BorderRadius
+//               //                                                         .circular(
+//               //                                                             64 *
+//               //                                                                 fem),
+//               //                                                 child:
+//               //                                                     Image.asset(
+//               //                                                   'assets/prototype/images/image-wqz.png',
+//               //                                                   fit: BoxFit
+//               //                                                       .cover,
+//               //                                                 ),
+//               //                                               ),
+//               //                                             ),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ],
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Positioned(
+//               //                                   // thomaslukasdov (116:1506)
+//               //                                   left: 28 * fem,
+//               //                                   top: 105 * fem,
+//               //                                   child: Center(
+//               //                                     child: Align(
+//               //                                       child: SizedBox(
+//               //                                         width: 98 * fem,
+//               //                                         height: 14 * fem,
+//               //                                         child: Text(
+//               //                                           'THOMAS LUKAS',
+//               //                                           textAlign:
+//               //                                               TextAlign.center,
+//               //                                           style: SafeGoogleFont(
+//               //                                             'Inter',
+//               //                                             fontSize: 14 * ffem,
+//               //                                             fontWeight:
+//               //                                                 FontWeight.w500,
+//               //                                             height: 0.9437169347 *
+//               //                                                 ffem /
+//               //                                                 fem,
+//               //                                             color:
+//               //                                                 Color(0xff4c4c4c),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                               ],
+//               //                             ),
+//               //                           ),
+//               //                           Container(
+//               //                             // autogroupryks4PS (HsVbNdwQr4bN233JtNRYKS)
+//               //                             width: 107 * fem,
+//               //                             child: Column(
+//               //                               crossAxisAlignment:
+//               //                                   CrossAxisAlignment.end,
+//               //                               children: [
+//               //                                 Container(
+//               //                                   // categoryQy6 (116:1491)
+//               //                                   margin: EdgeInsets.fromLTRB(
+//               //                                       0 * fem,
+//               //                                       0 * fem,
+//               //                                       0 * fem,
+//               //                                       25 * fem),
+//               //                                   width: double.infinity,
+//               //                                   decoration: BoxDecoration(
+//               //                                     borderRadius:
+//               //                                         BorderRadius.circular(
+//               //                                             5 * fem),
+//               //                                   ),
+//               //                                   child: Center(
+//               //                                     // drywallinstallationAhN (116:1492)
+//               //                                     child: SizedBox(
+//               //                                       width: 107 * fem,
+//               //                                       height: 82 * fem,
+//               //                                       child: Image.asset(
+//               //                                         'assets/prototype/images/drywall-installation-W4x.png',
+//               //                                         fit: BoxFit.cover,
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                                 Container(
+//               //                                   // autogroupw4hnsrg (HsVbWU3hXCRXnqtyfWw4Hn)
+//               //                                   margin: EdgeInsets.fromLTRB(
+//               //                                       0 * fem,
+//               //                                       0 * fem,
+//               //                                       0.77 * fem,
+//               //                                       0 * fem),
+//               //                                   padding: EdgeInsets.fromLTRB(
+//               //                                       0 * fem,
+//               //                                       4 * fem,
+//               //                                       0 * fem,
+//               //                                       0 * fem),
+//               //                                   width: 103.23 * fem,
+//               //                                   height: 26 * fem,
+//               //                                   child: Container(
+//               //                                     // group381cJU (116:1541)
+//               //                                     width: double.infinity,
+//               //                                     height: double.infinity,
+//               //                                     decoration: BoxDecoration(
+//               //                                       borderRadius:
+//               //                                           BorderRadius.circular(
+//               //                                               4 * fem),
+//               //                                     ),
+//               //                                     child: Container(
+//               //                                       // buttonlargeMG4 (116:1542)
+//               //                                       width: double.infinity,
+//               //                                       height: double.infinity,
+//               //                                       decoration: BoxDecoration(
+//               //                                         color: Color(0xffd20019),
+//               //                                         borderRadius:
+//               //                                             BorderRadius.circular(
+//               //                                                 4 * fem),
+//               //                                       ),
+//               //                                       child: Center(
+//               //                                         child: Text(
+//               //                                           'Delete',
+//               //                                           textAlign:
+//               //                                               TextAlign.center,
+//               //                                           style: SafeGoogleFont(
+//               //                                             'Inter',
+//               //                                             fontSize: 12 * ffem,
+//               //                                             fontWeight:
+//               //                                                 FontWeight.w500,
+//               //                                             height: 1.6666666667 *
+//               //                                                 ffem /
+//               //                                                 fem,
+//               //                                             color:
+//               //                                                 Color(0xffffffff),
+//               //                                           ),
+//               //                                         ),
+//               //                                       ),
+//               //                                     ),
+//               //                                   ),
+//               //                                 ),
+//               //                               ],
+//               //                             ),
+//               //                           ),
+//               //                         ],
+//               //                       ),
+//               //                     ),
+//               //                   ],
+//               //                 ),
+//               //               ),
+//               //             ],
+//               //           ),
+//               //         ),
+//               //       ],
+//               //     ),
+//               //   ),
+//               // ),
+//               // Positioned(
+//               //   // navtopryW (115:2682)
+//               //   left: 0 * fem,
+//               //   top: 0 * fem,
+//               //   child: Container(
+//               //     padding: EdgeInsets.fromLTRB(
+//               //         169 * fem, 62 * fem, 179 * fem, 20 * fem),
+//               //     width: 428 * fem,
+//               //     height: 102 * fem,
+//               //     decoration: BoxDecoration(
+//               //       color: Color(0xfffff6f6),
+//               //     ),
+//               //     child: Text(
+//               //       'Bookings',
+//               //       style: SafeGoogleFont(
+//               //         'Inter',
+//               //         fontSize: 18 * ffem,
+//               //         fontWeight: FontWeight.w500,
+//               //         height: 1.1111111111 * ffem / fem,
+//               //         color: Color(0xff4c4c4c),
+//               //       ),
+//               //     ),
+//               //   ),
+//               // ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

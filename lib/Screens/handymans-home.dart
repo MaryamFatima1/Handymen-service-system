@@ -230,13 +230,13 @@ class _HandymanHomeState extends State<Handyman_Home> {
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.list),
+            label: 'Bookings',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.school),
+            selectedIcon: Icon(Icons.reviews),
             icon: Icon(Icons.school_outlined),
-            label: 'School',
+            label: 'Reviews',
           ),
         ],
       ),

@@ -13,6 +13,7 @@ import 'Screens/handyman-reviews-ratings.dart';
 import 'Screens/customers-finish-service.dart';
 import 'Screens/customer-profile.dart';
 import 'Screens/customers-bookings.dart';
+import 'Screens/customer-details-handyman.dart';
 //import 'package:handymanservicesystem/Screens/customer-sign-up.dart';
 // import 'package:handymanservicesystem/prototype/customer-sign-in.dart';
 // import 'package:handymanservicesystem/prototype/customers-home.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => Customer_Bookings(),
+          '/': (context) => Customer_Profile_Details(),
           Handyman_Sign_In_Screen.RouteName: (context) =>
               Handyman_Sign_In_Screen(),
           Handyman_Sign_Up_Screen.RouteName: (context) =>
@@ -69,6 +70,8 @@ class MyApp extends StatelessWidget {
           Customer_Finish.RouteName: (context) => Customer_Finish(),
           Customer_Profile.RouteName: (context) => Customer_Profile(),
           Customer_Bookings.RouteName: (context) => Customer_Bookings(),
+          Customer_Profile_Details.RouteName: (context) =>
+              Customer_Profile_Details(),
         },
         onGenerateRoute: (settings) {
           return MaterialPageRoute(

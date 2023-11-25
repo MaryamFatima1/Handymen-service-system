@@ -10,6 +10,8 @@ class Customer_Finish extends StatefulWidget {
 }
 
 class _Customer_FinishState extends State<Customer_Finish> {
+  final descriptionController = TextEditingController();
+
   double rating = 3.5;
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,7 @@ class _Customer_FinishState extends State<Customer_Finish> {
                     Container(
                       // girlwithadogdoingyogaonamatDyr (108:3556)
                       margin: EdgeInsets.fromLTRB(
-                          0 * fem, 0 * fem, 0 * fem, 100 * fem),
+                          0 * fem, 0 * fem, 0 * fem, 10 * fem),
                       width: 274 * fem,
                       height: 314 * fem,
                       child: Image.asset(
@@ -80,9 +82,42 @@ class _Customer_FinishState extends State<Customer_Finish> {
                       ),
                     ),
                     Container(
+                      // descriptionFgC (114:2022)
+                      // width: 150 * fem,
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 5 * fem, 0 * fem, 5 * fem),
+                      child: Text(
+                        'Share your experience!',
+                        style: SafeGoogleFont(
+                          'Inter',
+                          fontSize: 22 * ffem,
+                          fontWeight: FontWeight.w600,
+                          height: 1 * ffem / fem,
+                          color: Color(0xff121c2d),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 90 * fem,
+                      width: 420 * ffem,
+                      margin: EdgeInsets.fromLTRB(
+                          0 * fem, 5 * fem, 0 * fem, 20 * fem),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff8891aa)),
+                        color: Color(0xffffffff),
+                        borderRadius: BorderRadius.circular(4 * fem),
+                      ),
+                      child: TextField(
+                        maxLines: null, // Set this
+                        expands: true, // and this
+                        keyboardType: TextInputType.multiline,
+                        controller: descriptionController,
+                      ),
+                    ),
+                    Container(
                       // rating7ZS (108:3562)
                       margin: EdgeInsets.fromLTRB(
-                          50 * fem, 0 * fem, 80 * fem, 26 * fem),
+                          60 * fem, 30 * fem, 70 * fem, 26 * fem),
                       width: double.infinity,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,7 +149,7 @@ class _Customer_FinishState extends State<Customer_Finish> {
                     Container(
                       // confirmbuttonun8 (108:3570)
                       margin: EdgeInsets.fromLTRB(
-                          53 * fem, 0 * fem, 91 * fem, 0 * fem),
+                          63 * fem, 15 * fem, 81 * fem, 0 * fem),
                       width: double.infinity,
                       height: 38 * fem,
                       decoration: BoxDecoration(

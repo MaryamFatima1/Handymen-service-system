@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:handymanservicesystem/utils.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Customer_Finish extends StatefulWidget {
   static const RouteName = '/Cutsomer_Finish';
+
+  const Customer_Finish({super.key});
 
   @override
   State<Customer_Finish> createState() => _Customer_FinishState();
@@ -213,8 +214,9 @@ class StarRating extends StatelessWidget {
         color: color ?? Theme.of(context).primaryColor,
       );
     }
-    return new InkResponse(
+    return InkResponse(
       onTap:
+          // ignore: unnecessary_null_comparison
           onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
       child: icon,
     );

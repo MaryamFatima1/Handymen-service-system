@@ -5,6 +5,8 @@ import '../models/Ratings.dart';
 class Handyman_Reviews_Screen extends StatefulWidget {
   static const RouteName = '/Handyman_Reviews';
 
+  const Handyman_Reviews_Screen({super.key});
+
   @override
   State<Handyman_Reviews_Screen> createState() =>
       _Handyman_Reviews_ScreenState();
@@ -258,7 +260,7 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
                                 );
                               },
                               separatorBuilder: (context, index) {
-                                return SizedBox(height: 10);
+                                return const SizedBox(height: 10);
                               },
                             ),
                           ),
@@ -281,8 +283,11 @@ class CustomContainerreview extends StatelessWidget {
   final String review;
   final double rating;
 
-  CustomContainerreview(
-      {required this.name, required this.review, required this.rating});
+  const CustomContainerreview(
+      {super.key,
+      required this.name,
+      required this.review,
+      required this.rating});
 
   @override
   Widget build(BuildContext context) {

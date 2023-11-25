@@ -204,14 +204,14 @@ class StarRating extends StatelessWidget {
         color: Colors.orange,
       );
     } else if (index > rating - 1 && index < rating) {
-      icon = new Icon(
+      icon = Icon(
         Icons.star_half,
-        color: color ?? Theme.of(context).primaryColor,
+        color: color,
       );
     } else {
-      icon = new Icon(
+      icon = Icon(
         Icons.star,
-        color: color ?? Theme.of(context).primaryColor,
+        color: color,
       );
     }
     return InkResponse(

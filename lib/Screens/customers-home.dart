@@ -303,7 +303,7 @@ class _Customer_HomeState extends State<Customer_Home> {
                 ),
               ),
               Container(
-                height: 550 * ffem,
+                height: 580 * ffem,
                 width: 360 * fem,
                 child: GridView.count(
                   crossAxisCount: 2,

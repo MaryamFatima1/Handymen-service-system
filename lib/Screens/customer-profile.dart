@@ -1,187 +1,244 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:handymanservicesystem/utils.dart';
 
-class Scene extends StatelessWidget {
+class Customer_Profile extends StatefulWidget {
+  static const RouteName = '/Customer_ProfilePage';
+
+  @override
+  State<Customer_Profile> createState() => _Customer_ProfileState();
+}
+
+class _Customer_ProfileState extends State<Customer_Profile> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      width: double.infinity,
-      child: Container(
-        // customerprofileMEg (116:2100)
-        padding: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 98*fem),
-        width: double.infinity,
-        decoration: BoxDecoration (
-          color: Color(0xffe5f0ff),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xff0263e0),
+        elevation: 0.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          "Profile",
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff0263e0), Colors.white],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.0, 0.1],
+          ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              // group3444un (116:2102)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 438*fem),
-              padding: EdgeInsets.fromLTRB(40*fem, 62*fem, 40*fem, 39.31*fem),
-              width: double.infinity,
-              decoration: BoxDecoration (
-                color: Color(0xff0263e0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    // autogroupr3bw9wE (HsVi1nD11wMuZ41weMR3bW)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 146*fem, 65.02*fem),
-                    width: double.infinity,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Container(
-                          // arrowsandchevronsarrowbackfeg (116:2106)
-                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 127.6*fem, 0*fem),
-                          width: 18.39*fem,
-                          height: 17.38*fem,
-                          child: Image.asset(
-                            'assets/prototype/images/arrows-and-chevrons-arrowback-J5N.png',
-                            width: 18.39*fem,
-                            height: 17.38*fem,
+            Positioned(
+              // group344F6y (115:2099)
+              left: 0 * fem,
+              top: 0 * fem,
+              child: Container(
+                padding:
+                    EdgeInsets.fromLTRB(90 * fem, 0 * fem, 40 * fem, 0 * fem),
+                width: 428 * fem,
+                height: 220 * fem,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      // autogroup4vreBYM (HsVYV8vBBFPZqo5hPA4vRE)
+                      margin: EdgeInsets.fromLTRB(
+                          12 * fem, 24 * fem, 0 * fem, 0 * fem),
+                      width: 246 * fem,
+                      height: 182.69 * fem,
+                      child: Positioned(
+                        // namephotooZj (115:2105)
+                        left: 79 * fem,
+                        top: 0 * fem,
+                        child: Container(
+                          width: 167 * fem,
+                          height: 154 * fem,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(64 * fem),
                           ),
-                        ),
-                        Container(
-                          // profileaWk (116:2107)
-                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0.98*fem),
-                          child: Text(
-                            'Profile',
-                            style: SafeGoogleFont (
-                              'Inter',
-                              fontSize: 18*ffem,
-                              fontWeight: FontWeight.w500,
-                              height: 1.1111111111*ffem/fem,
-                              color: Color(0xffffffff),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    // autogroup8zmec64 (HsVi6MuhdBCTBm1PRH8zme)
-                    margin: EdgeInsets.fromLTRB(12*fem, 0*fem, 0*fem, 0*fem),
-                    width: 226*fem,
-                    height: 182.69*fem,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          // profileGwJ (116:2104)
-                          left: 0*fem,
-                          top: 25.4375*fem,
-                          child: Container(
-                            width: 96*fem,
-                            height: 157.25*fem,
-                            decoration: BoxDecoration (
-                              color: Color(0xff0263e0),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          // photonameCa4 (116:2108)
-                          left: 93*fem,
-                          top: 0*fem,
-                          child: Container(
-                            width: 133*fem,
-                            height: 154*fem,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  // dpuUU (116:2109)
-                                  margin: EdgeInsets.fromLTRB(18*fem, 0*fem, 14*fem, 13*fem),
-                                  width: double.infinity,
-                                  decoration: BoxDecoration (
-                                    color: Color(0xff4c4c4c),
-                                    borderRadius: BorderRadius.circular(50.5*fem),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                // imageVhT (115:2106)
+                                margin: EdgeInsets.fromLTRB(
+                                    0 * fem, 0 * fem, 2 * fem, 4 * fem),
+                                width: 101 * fem,
+                                height: 110 * fem,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(64 * fem),
+                                  child: Image.asset(
+                                    'assets/prototype/images/auto-group-rfu4.png',
+                                    fit: BoxFit.cover,
                                   ),
-                                  child: Center(
-                                    // autogrouprfu4DEG (HsScfmNhdsFHZujS69RFU4)
-                                    child: SizedBox(
-                                      width: 101*fem,
-                                      height: 101*fem,
-                                      child: Image.asset(
-                                        'assets/prototype/images/auto-group-rfu4.png',
-                                        width: 101*fem,
-                                        height: 101*fem,
+                                ),
+                              ),
+                              Container(
+                                // group384PH3 (115:2107)
+                                width: double.infinity,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // thomaslukasKRb (115:2108)
+                                      margin: EdgeInsets.fromLTRB(
+                                          0 * fem, 0 * fem, 8 * fem, 0 * fem),
+                                      child: Text(
+                                        'Thomas Lukas',
+                                        style: SafeGoogleFont(
+                                          'Inter',
+                                          fontSize: 18 * ffem,
+                                          fontWeight: FontWeight.w500,
+                                          height: 1.1111111111 * ffem / fem,
+                                          color: Color(0xff0263e0),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  // group384jCc (116:2113)
-                                  width: double.infinity,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        // minnieramseypUx (116:2114)
-                                        width: double.infinity,
-                                        child: Text(
-                                          'Minnie Ramsey',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont (
-                                            'Inter',
-                                            fontSize: 18*ffem,
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.1111111111*ffem/fem,
-                                            color: Color(0xffffffff),
-                                          ),
-                                        ),
+                                    Text(
+                                      // thomaslukasemailcomp7T (115:2109)
+                                      'thomaslukas@email.com',
+                                      style: SafeGoogleFont(
+                                        'Inter',
+                                        fontSize: 14 * ffem,
+                                        fontWeight: FontWeight.w500,
+                                        height: 1.4285714286 * ffem / fem,
+                                        color: Color(0xff0263e0),
                                       ),
-                                      Container(
-                                        // minnieemailcomk7i (116:2115)
-                                        width: double.infinity,
-                                        child: Text(
-                                          'minnie@email.com',
-                                          textAlign: TextAlign.center,
-                                          style: SafeGoogleFont (
-                                            'Inter',
-                                            fontSize: 14*ffem,
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.4285714286*ffem/fem,
-                                            color: Color(0xffffffff),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Container(
-              // logoutUJc (116:2116)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 5*fem, 0*fem),
-              child: Text(
-                'Logout',
-                style: SafeGoogleFont (
-                  'Inter',
-                  fontSize: 18*ffem,
-                  fontWeight: FontWeight.w500,
-                  height: 1.1111111111*ffem/fem,
-                  color: Color(0xff0263e0),
+              width: 280 * fem,
+              height: 46 * fem,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xff8891aa),
+                ),
+                color: Color(0xffffffff),
+                borderRadius: BorderRadius.circular(4 * fem),
+              ),
+              child: Container(
+                margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                padding:
+                    EdgeInsets.fromLTRB(12 * fem, 0 * fem, 0 * fem, 12 * fem),
+                width: 280 * fem,
+                height: double.infinity,
+                child: TextFormField(
+                  enabled: true,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Enter your old password',
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          //_isoldPasswordEditable = true;
+                        });
+                      },
+                      icon: Icon(Icons.edit),
+                    ),
+                    hintStyle: SafeGoogleFont(
+                      'Inter',
+                      fontSize: 16 * ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 1.25 * ffem / fem,
+                      color: Color(0xff4c4c4c),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20 * fem,
+            ),
+            Container(
+              width: 280 * fem,
+              height: 46 * fem,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(0xff8891aa),
+                ),
+                color: Color(0xffffffff),
+                borderRadius: BorderRadius.circular(4 * fem),
+              ),
+              child: Container(
+                margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
+                padding:
+                    EdgeInsets.fromLTRB(12 * fem, 0 * fem, 0 * fem, 12 * fem),
+                width: 280 * fem,
+                height: double.infinity,
+                child: TextFormField(
+                  enabled: true,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Enter your new password',
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          //  _isnewPasswordEditable = true;
+                          print('azman');
+                        });
+                      },
+                      icon: Icon(Icons.edit),
+                    ),
+                    hintStyle: SafeGoogleFont(
+                      'Inter',
+                      fontSize: 16 * ffem,
+                      fontWeight: FontWeight.w400,
+                      height: 1.25 * ffem / fem,
+                      color: Color(0xff4c4c4c),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 320 * ffem / fem,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: TextButton(
+                onPressed: () {
+                  // Your button action here
+                },
+                child: Text(
+                  'Log out',
+                  style: SafeGoogleFont(
+                    'Inter',
+                    fontSize: 22 * ffem,
+                    fontWeight: FontWeight.w400,
+                    height: 1.25 * ffem / fem,
+                    color: Color(0xff0263e0),
+                  ),
                 ),
               ),
             ),
           ],
         ),
       ),
-          );
+    );
   }
 }

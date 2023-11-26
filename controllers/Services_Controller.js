@@ -26,7 +26,7 @@ async function getAService(req, res) {
     if (!service || service.deleted) {
       res.status(404).json({ error: 'Service not found' });
     } else {
-      res.json(service);
+      res.json({id: service._id, name: service.name}); // Extract only the 'name' property
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -34,6 +34,8 @@ async function getAService(req, res) {
 }
 
 async function updateService(req, res) {
+
+
   try {
     const { id } = req.params;
     const updatedService = await Service.findByIdAndUpdate(id, req.body, { new: true });

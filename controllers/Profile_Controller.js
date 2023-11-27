@@ -37,7 +37,8 @@ async function getAllProfiles(req, res) {
 async function getAProfile(req, res) {
   try {
     const { id } = req.params;
-    const profile = await Profile.findById(id).populate('role_id');
+    const profile = await Profile.findById(id).populate({  path: 'role_id',
+    select: 'name', }).select('first_name last_name city_name phone_number email password picture service_description');
     if (!profile) {
       res.status(404).json({ error: 'Profile not found' });
     } else {
@@ -51,7 +52,8 @@ async function getAProfile(req, res) {
 async function updateProfile(req, res) {
   try {
     const { id } = req.params;
-    const updatedProfile = await Profile.findByIdAndUpdate(id, req.body, { new: true }).populate('role_id');
+    const updatedProfile = await Profile.findByIdAndUpdate(id, req.body, { new: true }).populate({  path: 'role_id',
+    select: 'name', }).select('first_name last_name city_name phone_number email password picture service_description');
     if (!updatedProfile) {
       res.status(404).json({ error: 'Profile not found' });
     } else {

@@ -1,10 +1,14 @@
-const Service = require('../models/Services_model');
+const Service = require('../models/Services_Models');
 const mongoose = require('mongoose');
 
 async function createService(req, res) {
   try {
     const service = await Service.create(req.body);
-    res.status(201).json(service);
+    res.status(201).json({
+      id: service._id,
+      name: service.name,
+      picture: service.picture,
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -12,7 +16,7 @@ async function createService(req, res) {
 
 async function getAllServices(req, res) {
   try {
-    const services = await Service.find({ deleted: false }).select('name');
+    const services = await Service.find().select('name picture');
     res.json(services);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -22,11 +26,11 @@ async function getAllServices(req, res) {
 async function getAService(req, res) {
   try {
     const { id } = req.params;
-    const service = await Service.findById(id);
-    if (!service || service.deleted) {
+    const service = await Service.findById(id).select('name picture');
+    if (!service) {
       res.status(404).json({ error: 'Service not found' });
     } else {
-      res.json({id: service._id, name: service.name}); // Extract only the 'name' property
+      res.json(service);
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -34,12 +38,10 @@ async function getAService(req, res) {
 }
 
 async function updateService(req, res) {
-
-
   try {
     const { id } = req.params;
-    const updatedService = await Service.findByIdAndUpdate(id, req.body, { new: true });
-    if (!updatedService || updatedService.deleted) {
+    const updatedService = await Service.findByIdAndUpdate(id, req.body, { new: true }).select('name picture');
+    if (!updatedService) {
       res.status(404).json({ error: 'Service not found' });
     } else {
       res.json(updatedService);

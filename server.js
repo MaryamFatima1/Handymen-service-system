@@ -5,6 +5,7 @@ const Role_routes = require('./routes/Role_Routes');
 const Profile_routes = require('./routes/Profile_Routes');
 const Service_routes =  require('./routes/Services_Routes');
 const Selected_Services_routes = require('./routes/Selected_Services_routes');
+const Booking_routes = require('./routes/Bookings');
 
 
 const Handyman_routes = require('./routes/handyman_routes');
@@ -22,6 +23,8 @@ app.use('/ROLE',Role_routes);
 app.use('/PROFILE',Profile_routes);
 app.use('/SERVICE',Service_routes);
 app.use('/SELECTED_SERVICE',Selected_Services_routes);
+app.use('/BOOKING',Booking_routes);
+
 
 
 

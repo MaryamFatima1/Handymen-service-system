@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customer-handymans-.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 
 class Customer_Profile extends StatefulWidget {
@@ -22,7 +24,11 @@ class _Customer_ProfileState extends State<Customer_Profile> {
           icon: Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
-            Navigator.pop(context);
+           Navigator.pushNamedAndRemoveUntil(
+  context,
+  Customer_Home.RouteName,
+  (Route<dynamic> route) => false,
+);
           },
         ),
         title: Text(
@@ -223,6 +229,7 @@ class _Customer_ProfileState extends State<Customer_Profile> {
               child: TextButton(
                 onPressed: () {
                   // Your button action here
+                      Navigator.pop(context);
                 },
                 child: Text(
                   'Log out',

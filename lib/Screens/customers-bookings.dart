@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customers-finish-service.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/Bookings.dart';
@@ -45,6 +47,23 @@ class _Handyman_BookingsState extends State<Customer_Bookings> {
       final_Status: "Accept",
     ),
   ];
+    int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Customer_Home.RouteName);
+          break;
+        case 1:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Customer_Bookings.RouteName);
+          break;
+      }
+    });
+  }
   late CustomContainer customContainer;
   String selectedStatus = 'All                                 ';
   @override
@@ -52,7 +71,28 @@ class _Handyman_BookingsState extends State<Customer_Bookings> {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
+
     return Scaffold(
+       bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'Home',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.black),
+            label: 'Bookings',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+     selectedItemColor: Colors.black,
+        iconSize: 20 * fem,
+        onTap: _onItemTapped,
+        elevation: 40 * fem,
+      ),
       appBar: AppBar(
         backgroundColor: Color(0xfffff6f6),
         title: Text(
@@ -472,31 +512,39 @@ class CustomContainer extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            // group379dQ4 (116:1454)
-                            width: 103.23 * fem,
-                            height: 22 * fem,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4 * fem),
-                            ),
+                          GestureDetector(
+                            onTap: (){
+                              if(final_Status == 'Finish')
+                              {
+                                Navigator.pushNamed(context, Customer_Finish.RouteName);
+                              }
+                            },
                             child: Container(
-                              // buttonlargeaKJ (116:1455)
-                              width: double.infinity,
-                              height: double.infinity,
+                              // group379dQ4 (116:1454)
+                              width: 103.23 * fem,
+                              height: 22 * fem,
                               decoration: BoxDecoration(
-                                color: getfinialButtonColor(final_Status),
                                 borderRadius: BorderRadius.circular(4 * fem),
                               ),
-                              child: Center(
-                                child: Text(
-                                  final_Status,
-                                  textAlign: TextAlign.center,
-                                  style: SafeGoogleFont(
-                                    'Inter',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.6666666667 * ffem / fem,
-                                    color: Color(0xffffffff),
+                              child: Container(
+                                // buttonlargeaKJ (116:1455)
+                                width: double.infinity,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: getfinialButtonColor(final_Status),
+                                  borderRadius: BorderRadius.circular(4 * fem),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    final_Status,
+                                    textAlign: TextAlign.center,
+                                    style: SafeGoogleFont(
+                                      'Inter',
+                                      fontSize: 12 * ffem,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.6666666667 * ffem / fem,
+                                      color: Color(0xffffffff),
+                                    ),
                                   ),
                                 ),
                               ),

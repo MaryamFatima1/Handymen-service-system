@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customer-handymans-.dart';
+import 'package:handymanservicesystem/Screens/customer-profile.dart';
+import 'package:handymanservicesystem/Screens/customers-bookings.dart';
 import 'package:handymanservicesystem/utils.dart';
 import '../models/service_catagories.dart';
 
@@ -37,12 +40,49 @@ class _Customer_HomeState extends State<Customer_Home> {
         service_Name: 'Small appliance repair',
         Picture: 'assets/prototype/images/small-appliance-repair-bg.png'),
   ];
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Customer_Home.RouteName);
+          break;
+        case 1:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Customer_Bookings.RouteName);
+          break;
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double baseWidth = 429;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+ bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'Home',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.black),
+            label: 'Bookings',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+     selectedItemColor: Colors.black,
+        iconSize: 20 * fem,
+        onTap: _onItemTapped,
+        elevation: 40 * fem,
+      ),
       body: Container(
         width: double.infinity,
         child: Container(
@@ -92,13 +132,18 @@ class _Customer_HomeState extends State<Customer_Home> {
                         ),
                         child: Center(
                           // autogroupn5jgFcc (HsScdS7Fh22AxMGJEun5Jg)
-                          child: SizedBox(
-                            width: 52 * fem,
-                            height: 52 * fem,
-                            child: Image.asset(
-                              'assets/prototype/images/auto-group-n5jg.png',
+                          child: GestureDetector(
+                            onTap: (){
+                                Navigator.pushNamed(context, Customer_Profile.RouteName);
+                            },
+                            child: SizedBox(
                               width: 52 * fem,
                               height: 52 * fem,
+                              child: Image.asset(
+                                'assets/prototype/images/auto-group-n5jg.png',
+                                width: 52 * fem,
+                                height: 52 * fem,
+                              ),
                             ),
                           ),
                         ),
@@ -256,10 +301,9 @@ class _Customer_HomeState extends State<Customer_Home> {
                             Expanded(
                               child: TextField(
                                 decoration: InputDecoration(
-                                  hintText:
-                                      'What services are you looking for?',
+                                  hintText: 'What services are you looking?',
                                   contentPadding: EdgeInsets.fromLTRB(
-                                      12 * fem, 0 * fem, 0 * fem, 12 * fem),
+                                      12 * fem, 0 * fem, 0 * fem, 19 * fem),
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -303,7 +347,7 @@ class _Customer_HomeState extends State<Customer_Home> {
                 ),
               ),
               Container(
-                height: 580 * ffem,
+                height: 550 * ffem,
                 width: 360 * fem,
                 child: GridView.count(
                   crossAxisCount: 2,
@@ -325,7 +369,7 @@ class _Customer_HomeState extends State<Customer_Home> {
   }
 }
 
-class FixtureReplacementContainer extends StatelessWidget {
+class FixtureReplacementContainer extends StatefulWidget {
   const FixtureReplacementContainer({
     super.key,
     required this.name,
@@ -336,46 +380,57 @@ class FixtureReplacementContainer extends StatelessWidget {
   final String picture;
 
   @override
+  State<FixtureReplacementContainer> createState() => _FixtureReplacementContainerState();
+}
+
+class _FixtureReplacementContainerState extends State<FixtureReplacementContainer> {
+  @override
   Widget build(BuildContext context) {
     double baseWidth = 429;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return Container(
-      margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 15 * fem, 0 * fem),
-      padding: EdgeInsets.fromLTRB(0 * fem, 140 * fem, 0 * fem, 0 * fem),
-      width: 155 * fem,
-      height: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(13 * fem),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(picture),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x44000000),
-            offset: Offset(0 * fem, 0 * fem),
-            blurRadius: 2 * fem,
-          ),
-        ],
-      ),
+    return GestureDetector(
+      onTap :()
+      {
+          Navigator.pushNamed(context, Customer_Service_Provider.RouteName);
+      },
       child: Container(
-        width: double.infinity,
+        margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 15 * fem, 0 * fem),
+        padding: EdgeInsets.fromLTRB(0 * fem, 140 * fem, 0 * fem, 0 * fem),
+        width: 155 * fem,
         height: double.infinity,
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xffc1c1c1)),
-          color: Color(0xd8ffffff),
+          borderRadius: BorderRadius.circular(13 * fem),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(widget.picture),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0x44000000),
+              offset: Offset(0 * fem, 0 * fem),
+              blurRadius: 2 * fem,
+            ),
+          ],
         ),
-        child: Center(
-          child: Text(
-            name,
-            textAlign: TextAlign.center,
-            style: SafeGoogleFont(
-              'Inter',
-              fontSize: 11 * ffem,
-              fontWeight: FontWeight.w400,
-              height: 1.8181818182 * ffem / fem,
-              color: Color(0xff4c4c4c),
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            border: Border.all(color: Color(0xffc1c1c1)),
+            color: Color(0xd8ffffff),
+          ),
+          child: Center(
+            child: Text(
+              widget.name,
+              textAlign: TextAlign.center,
+              style: SafeGoogleFont(
+                'Inter',
+                fontSize: 11 * ffem,
+                fontWeight: FontWeight.w400,
+                height: 1.8181818182 * ffem / fem,
+                color: Color(0xff4c4c4c),
+              ),
             ),
           ),
         ),

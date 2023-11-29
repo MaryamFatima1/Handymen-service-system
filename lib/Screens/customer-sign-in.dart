@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customer-sign-up.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'handyman-signup.dart';
@@ -447,6 +449,7 @@ class _Customer_Sign_In_ScreenState extends State<Customer_Sign_In_Screen> {
                           print(password);
                           _emailController.clear();
                           _passwordController.clear();
+                          Navigator.pushNamed(context, Customer_Home.RouteName);
                         });
                       },
                       child: Container(
@@ -497,7 +500,7 @@ class _Customer_Sign_In_ScreenState extends State<Customer_Sign_In_Screen> {
                           InkWell(
                             onTap: () {
                               Navigator.pushNamed(
-                                  context, Handyman_Sign_Up_Screen.RouteName);
+                                  context, Customer_SignUp_Screen.RouteName);
                             },
                             child: Container(
                               // signup3gU (114:1579)

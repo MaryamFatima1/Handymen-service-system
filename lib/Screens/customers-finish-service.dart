@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 
 class Customer_Finish extends StatefulWidget {
@@ -25,7 +26,11 @@ class _Customer_FinishState extends State<Customer_Finish> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff4c4c4c)),
           onPressed: () {
-            Navigator.pop(context);
+           Navigator.pushNamedAndRemoveUntil(
+  context,
+  Customer_Home.RouteName,
+  (Route<dynamic> route) => false,
+);
           },
         ),
         centerTitle: true,

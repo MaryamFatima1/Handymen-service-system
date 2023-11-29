@@ -1,5 +1,7 @@
 import 'dart:convert';
 //import 'package:flutter/services.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
+
 import '../configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:handymanservicesystem/utils.dart';
@@ -108,7 +110,7 @@ class Customer_SignUp_ScreenState extends State<Customer_SignUp_Screen> {
       };
       Navigator.pushNamed(
         context,
-        Handyman_Home.RouteName,
+       Customer_Home.RouteName,
         arguments: arguments,
       );
     } else {
@@ -703,7 +705,7 @@ class Customer_SignUp_ScreenState extends State<Customer_SignUp_Screen> {
                               margin: EdgeInsets.fromLTRB(
                                   0 * fem, 0 * fem, 2 * fem, 0 * fem),
                               child: Text(
-                                'Log in ',
+                                'Sign In',
                                 textAlign: TextAlign.center,
                                 style: SafeGoogleFont(
                                   'Inter',

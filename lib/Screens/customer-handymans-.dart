@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customer-details-handyman.dart';
+import 'package:handymanservicesystem/Screens/customer-profile.dart';
+import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import '../models/Service_Provider.dart';
 
@@ -56,7 +59,11 @@ class _Customer_Service_ProviderState extends State<Customer_Service_Provider> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Color(0xff4c4c4c)),
           onPressed: () {
-            Navigator.pop(context);
+        Navigator.pushNamedAndRemoveUntil(
+  context,
+  Customer_Home.RouteName,
+  (Route<dynamic> route) => false,
+);
           },
         ),
         centerTitle: true,
@@ -85,7 +92,7 @@ class _Customer_Service_ProviderState extends State<Customer_Service_Provider> {
             children: [
               Container(
                 // frame326oXe (116:2055)
-                height: 650 * ffem / fem,
+                height: 690 * ffem / fem,
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -410,30 +417,36 @@ class CustomServiceProvider extends StatelessWidget {
                         // group21nyW (17:12415)
                         left: 120 * fem,
                         top: 98 * fem,
-                        child: Container(
-                          width: 84 * fem,
-                          height: 28 * fem,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8 * fem),
-                          ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, Customer_Profile_Details.RouteName);
+                          },
                           child: Container(
-                            // badgew5i (17:12410)
-                            width: double.infinity,
-                            height: double.infinity,
+                            width: 84 * fem,
+                            height: 28 * fem,
                             decoration: BoxDecoration(
-                              color: Color(0xffd61f1f),
                               borderRadius: BorderRadius.circular(8 * fem),
                             ),
-                            child: Center(
-                              child: Text(
-                                'Book',
-                                textAlign: TextAlign.center,
-                                style: SafeGoogleFont(
-                                  'Inter',
-                                  fontSize: 12 * ffem,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.3333333333 * ffem / fem,
-                                  color: Color(0xffffffff),
+                            child: Container(
+                              // badgew5i (17:12410)
+                              width: double.infinity,
+                              height: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Color(0xffd61f1f),
+                                borderRadius: BorderRadius.circular(8 * fem),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Book',
+                                  textAlign: TextAlign.center,
+                                  style: SafeGoogleFont(
+                                    'Inter',
+                                    fontSize: 12 * ffem,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.3333333333 * ffem / fem,
+                                    color: Color(0xffffffff),
+                                  ),
                                 ),
                               ),
                             ),

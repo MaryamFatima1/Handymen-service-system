@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:handymanservicesystem/Screens/customer-details-handyman.dart';
-import 'package:handymanservicesystem/Screens/customer-profile.dart';
 import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import '../models/Service_Provider.dart';

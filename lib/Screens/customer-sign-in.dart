@@ -3,7 +3,6 @@ import 'package:handymanservicesystem/Screens/customer-sign-up.dart';
 import 'package:handymanservicesystem/Screens/customers-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'handyman-signup.dart';
 
 class Customer_Sign_In_Screen extends StatefulWidget {
   static const RouteName = '/Customer_Sign_In';

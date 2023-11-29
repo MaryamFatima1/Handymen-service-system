@@ -8,7 +8,6 @@ import 'package:handymanservicesystem/configuration.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../Screens/landing.dart';
-import '../configuration.dart';
 
 class Handyman_Sign_In_Screen extends StatefulWidget {
   static const RouteName = '/Handyman_Sign_In';

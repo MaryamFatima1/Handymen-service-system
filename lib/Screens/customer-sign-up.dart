@@ -8,7 +8,6 @@ import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import '../models/handyman.dart';
-import './handymans-home.dart';
 import '../models/Service.dart';
 
 class Customer_SignUp_Screen extends StatefulWidget {

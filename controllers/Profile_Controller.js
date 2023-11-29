@@ -78,10 +78,28 @@ async function deleteProfile(req, res) {
   }
 }
 
+async function loginProfile(req, res, next) {
+  const { email, password  } = req.body;
+  try {
+    const profile = await Profile.findOne({ email }).populate({  path: 'role_id',
+    select: 'name', }).select('first_name last_name city_name phone_number email password picture service_description');
+    if (!profile) return res.status(404).json({ error: "Profile not found" });
+    if (profile.password != password)
+      return res.status(401).json({ error: "Invalid credentials" });
+
+
+  //  var token = generateToken(handyman);
+    return res.status(200).json(profile);
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
   createProfile,
   getAllProfiles,
   getAProfile,
   updateProfile,
   deleteProfile,
+  loginProfile,
 };

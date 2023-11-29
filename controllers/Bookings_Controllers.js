@@ -1,9 +1,14 @@
 const Booking = require('../models/Bookings_Model');
 const mongoose = require('mongoose');
+const { createAuditLog, getAuditLogs } = require('../controllers/Audit_Controller');
+const exceptionLogController = require('../controllers/Exceptionlog_controller');
+const ExceptionLog = require('../models/Exception_log_model');
+
 
 async function createBooking(req, res) {
   try {
     const booking = await Booking.create(req.body);
+    await createAuditLog('create', 'Booking', booking._id, null, req.user._id);
     res.status(201).json({
       id: booking._id,
       handyman_id : booking.handyman_id,
@@ -13,7 +18,9 @@ async function createBooking(req, res) {
       initial_status : booking.initial_status,
       final_status : booking.final_status
     });
+
   } catch (err) {
+    await exceptionLogController.logException('CreateBookingError', error.message, error.stack);
     res.status(500).json({ error: err.message });
   }
 }
@@ -48,6 +55,7 @@ async function updateBooking(req, res) {
     if (!updatedBooking) {
       res.status(404).json({ error: 'Booking not found' });
     } else {
+      await createAuditLog('update', 'Booking',updatedBooking, req.body, req.user._id);
       res.json(updatedBooking);
     }
   } catch (err) {

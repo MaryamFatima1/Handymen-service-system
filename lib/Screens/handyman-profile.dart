@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/landing.dart';
 import 'package:handymanservicesystem/utils.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -102,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       margin: EdgeInsets.fromLTRB(
                                           0 * fem, 0 * fem, 8 * fem, 0 * fem),
                                       child: Text(
-                                        'Thomas Lukas',
+                                        'Aftab Ali',
                                         style: SafeGoogleFont(
                                           'Inter',
                                           fontSize: 18 * ffem,
@@ -438,7 +439,11 @@ class _ProfilePageState extends State<ProfilePage> {
               alignment: Alignment.bottomCenter,
               child: TextButton(
                 onPressed: () {
-                  // Your button action here
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    landing_screen.RouteName,
+                    (Route<dynamic> route) => false,
+                  );
                 },
                 child: Text('Log out'),
               ),

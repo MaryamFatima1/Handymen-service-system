@@ -14,11 +14,20 @@ class Customer_Sign_In_Screen extends StatefulWidget {
 class _Customer_Sign_In_ScreenState extends State<Customer_Sign_In_Screen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
   String email = '';
   String password = '';
   bool isChecked = false;
   bool _obscureText = true;
+  String? Customer_id;
+
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
+    if (arguments != null) {
+      Customer_id = arguments['customer_id'];
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +46,7 @@ class _Customer_Sign_In_ScreenState extends State<Customer_Sign_In_Screen> {
             iconSize: 18.39 * fem,
             color: Color(0xff121c2d), // Set the icon color to black
             onPressed: () {
-              Navigator.pop(context);
+              print(Customer_id);
             },
           ),
         ),

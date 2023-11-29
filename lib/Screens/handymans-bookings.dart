@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/handyman-finish-service-request.dart';
+import 'package:handymanservicesystem/Screens/handyman-reviews-ratings.dart';
+import 'package:handymanservicesystem/Screens/handymans-accept-service-request.dart';
+import 'package:handymanservicesystem/Screens/handymans-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/Bookings.dart';
@@ -45,14 +49,62 @@ class _Handyman_BookingsState extends State<Handyman_Bookings> {
       final_Status: "Accept",
     ),
   ];
+  int currentPageIndex = 0;
   late CustomContainer customContainer;
   String selectedStatus = 'All                                 ';
+  int _selectedIndex = 1;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Home.RouteName);
+          break;
+        case 1:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Bookings.RouteName);
+          break;
+        case 2:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Reviews_Screen.RouteName);
+          break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'Home',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.black),
+            label: 'Bookings',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.reviews_sharp, color: Colors.black),
+            label: 'Reviews',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        iconSize: 20 * fem,
+        onTap: _onItemTapped,
+        elevation: 40 * fem,
+      ),
       appBar: AppBar(
         backgroundColor: Color(0xfffff6f6),
         title: Text(
@@ -137,7 +189,7 @@ class _Handyman_BookingsState extends State<Handyman_Bookings> {
 }
 
 // ignore: must_be_immutable
-class CustomContainer extends StatelessWidget {
+class CustomContainer extends StatefulWidget {
   String service_Name;
   String initial_Status;
   String date;
@@ -152,6 +204,12 @@ class CustomContainer extends StatelessWidget {
     required this.name,
     required this.final_Status,
   });
+
+  @override
+  State<CustomContainer> createState() => _CustomContainerState();
+}
+
+class _CustomContainerState extends State<CustomContainer> {
   Color getInitialStatusColor(String status) {
     if (status == 'In Progress') {
       return Color(
@@ -221,7 +279,7 @@ class CustomContainer extends StatelessWidget {
                 width: double.infinity,
                 height: 30 * fem,
                 decoration: BoxDecoration(
-                  color: getInitialStatusColor(initial_Status),
+                  color: getInitialStatusColor(widget.initial_Status),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -231,7 +289,7 @@ class CustomContainer extends StatelessWidget {
                       margin: EdgeInsets.fromLTRB(
                           0 * fem, 0 * fem, 143 * fem, 0 * fem),
                       child: Text(
-                        service_Name,
+                        widget.service_Name,
                         textAlign: TextAlign.right,
                         style: SafeGoogleFont(
                           'Inter',
@@ -247,12 +305,12 @@ class CustomContainer extends StatelessWidget {
                       width: 76 * fem,
                       height: double.infinity,
                       decoration: BoxDecoration(
-                        color: getInitialButtonColor(initial_Status),
+                        color: getInitialButtonColor(widget.initial_Status),
                         borderRadius: BorderRadius.circular(16 * fem),
                       ),
                       child: Center(
                         child: Text(
-                          initial_Status,
+                          widget.initial_Status,
                           style: SafeGoogleFont(
                             'Inter',
                             fontSize: 10 * ffem,
@@ -313,7 +371,7 @@ class CustomContainer extends StatelessWidget {
                                             text: 'Date: ',
                                           ),
                                           TextSpan(
-                                            text: date,
+                                            text: widget.date,
                                             style: SafeGoogleFont(
                                               'Inter',
                                               fontSize: 12 * ffem,
@@ -350,7 +408,7 @@ class CustomContainer extends StatelessWidget {
                                         Center(
                                           // chestnutikx (116:1475)
                                           child: Text(
-                                            city,
+                                            widget.city,
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'Inter',
@@ -391,7 +449,7 @@ class CustomContainer extends StatelessWidget {
                                   width: 98 * fem,
                                   height: 14 * fem,
                                   child: Text(
-                                    name,
+                                    widget.name,
                                     textAlign: TextAlign.center,
                                     style: SafeGoogleFont(
                                       'Inter',
@@ -405,7 +463,7 @@ class CustomContainer extends StatelessWidget {
                               ),
                             ),
                           ),
-                          if (initial_Status == 'Pending')
+                          if (widget.initial_Status == 'Pending')
                             Positioned(
                               // frame368yy2 (116:1536)
                               left: 4 * fem,
@@ -472,31 +530,43 @@ class CustomContainer extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Container(
-                            // group379dQ4 (116:1454)
-                            width: 103.23 * fem,
-                            height: 22 * fem,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4 * fem),
-                            ),
+                          GestureDetector(
+                            onTap: (() {
+                              if (widget.final_Status == "Accept") {
+                                Navigator.pushNamed(
+                                    context, HandymanPendingrequest.RouteName);
+                              } else {
+                                Navigator.pushNamed(
+                                    context, Handyman_Service_Complete.RouteName);
+                              }
+                            }),
                             child: Container(
-                              // buttonlargeaKJ (116:1455)
-                              width: double.infinity,
-                              height: double.infinity,
+                              // group379dQ4 (116:1454)
+                              width: 103.23 * fem,
+                              height: 22 * fem,
                               decoration: BoxDecoration(
-                                color: getfinialButtonColor(final_Status),
                                 borderRadius: BorderRadius.circular(4 * fem),
                               ),
-                              child: Center(
-                                child: Text(
-                                  final_Status,
-                                  textAlign: TextAlign.center,
-                                  style: SafeGoogleFont(
-                                    'Inter',
-                                    fontSize: 12 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.6666666667 * ffem / fem,
-                                    color: Color(0xffffffff),
+                              child: Container(
+                                // buttonlargeaKJ (116:1455)
+                                width: double.infinity,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color:
+                                      getfinialButtonColor(widget.final_Status),
+                                  borderRadius: BorderRadius.circular(4 * fem),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    widget.final_Status,
+                                    textAlign: TextAlign.center,
+                                    style: SafeGoogleFont(
+                                      'Inter',
+                                      fontSize: 12 * ffem,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1.6666666667 * ffem / fem,
+                                      color: Color(0xffffffff),
+                                    ),
                                   ),
                                 ),
                               ),

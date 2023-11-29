@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/handyman-reviews-ratings.dart';
+import 'package:handymanservicesystem/Screens/handymans-bookings.dart';
 import 'package:handymanservicesystem/utils.dart';
 import '../models/handyman.dart';
 import 'package:http/http.dart' as http;
 import '../configuration.dart';
 import 'dart:convert';
 import '../models/Service.dart';
+import './handyman-profile.dart';
 
 class Handyman_Home extends StatefulWidget {
   static const RouteName = '/Handyman_Home';
@@ -53,9 +56,9 @@ class _HandymanHomeState extends State<Handyman_Home> {
         availableservices4 = List.from(services);
         _handyman_id = Handyman_id(id: '655c74a74fe1679dd31d4647');
         RegisterHandymanBody newhandyman = const RegisterHandymanBody(
-          first_name: 'Azman',
+          first_name: 'Aftab',
           last_name: 'Doe',
-          city_name: 'Not get',
+          city_name: 'PATOKI',
           phone_number: '+1234567890',
           email: 'johndoe@example.com',
           password: 'password123',
@@ -209,36 +212,58 @@ class _HandymanHomeState extends State<Handyman_Home> {
 //     }
 //   }
 // }
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Home.RouteName);
+          break;
+        case 1:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Bookings.RouteName);
+          break;
+        case 2:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Reviews_Screen.RouteName);
+          break;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.blue.shade300,
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
             label: 'Home',
+            backgroundColor: Color(0xfffff6f6),
           ),
-          NavigationDestination(
-            icon: Icon(Icons.list),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.black),
             label: 'Bookings',
+            backgroundColor: Color(0xfffff6f6),
           ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.reviews),
-            icon: Icon(Icons.school_outlined),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.reviews_sharp, color: Colors.black),
             label: 'Reviews',
+            backgroundColor: Color(0xfffff6f6),
           ),
         ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+     selectedItemColor: Colors.black,
+        iconSize: 20 * fem,
+        onTap: _onItemTapped,
+        elevation: 40 * fem,
       ),
       body: Container(
         width: double.infinity,
@@ -272,7 +297,7 @@ class _HandymanHomeState extends State<Handyman_Home> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          getServiceList();
+                          Navigator.pushNamed(context, ProfilePage.RouteName);
                         },
                         child: Container(
                           // imagewoN (116:2149)
@@ -587,12 +612,12 @@ class _HandymanHomeState extends State<Handyman_Home> {
               ),
               Expanded(
                 child: Align(
-                  alignment: Alignment.bottomCenter,
+                  // alignment: Alignment.bottomCenter,
                   child: Container(
                     margin: EdgeInsets.fromLTRB(140 * fem, 0, 140 * fem, 0),
                     child: MaterialButton(
                       minWidth: double.infinity,
-                      height: 55 * fem,
+                      height: 45 * fem,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8 * fem)),
                       color: Color(0xff0263e0),

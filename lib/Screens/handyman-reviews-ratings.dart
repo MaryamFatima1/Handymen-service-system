@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/handyman-profile.dart';
+import 'package:handymanservicesystem/Screens/handymans-bookings.dart';
+import 'package:handymanservicesystem/Screens/handymans-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import '../models/Ratings.dart';
 
@@ -14,6 +17,7 @@ class Handyman_Reviews_Screen extends StatefulWidget {
 
 class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
   late CustomContainerreview customcontainerreview;
+    int currentPageIndex = 0;
   List<Ratings> ratings = [
     Ratings(
         name: "John Doe",
@@ -49,12 +53,58 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
         review: "I love this product!  A good guy with good service.",
         rating: 5.0),
   ];
+   int _selectedIndex = 2;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (index) {
+        case 0:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Home.RouteName);
+          break;
+        case 1:
+          Navigator.pop(context);        
+          Navigator.pushNamed(context, Handyman_Bookings.RouteName);
+          break;
+        case 2:
+          Navigator.pop(context);
+          Navigator.pushNamed(context, Handyman_Reviews_Screen.RouteName);
+          break;
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+     bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: Colors.black),
+            label: 'Home',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list, color: Colors.black),
+            label: 'Bookings',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.reviews_sharp, color: Colors.black),
+            label: 'Reviews',
+            backgroundColor: Color(0xfffff6f6),
+          ),
+        ],
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        iconSize: 20 * fem,
+        onTap: _onItemTapped,
+        elevation: 40 * fem,
+      ),
       body: Container(
         width: double.infinity,
         child: Container(
@@ -84,17 +134,22 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        // imageLq6 (116:2039)
-                        margin: EdgeInsets.fromLTRB(
-                            0 * fem, 0 * fem, 13.99 * fem, 0 * fem),
-                        width: 52 * fem,
-                        height: 52 * fem,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(64 * fem),
-                          child: Image.asset(
-                            'assets/prototype/images/image-dVA.png',
-                            fit: BoxFit.cover,
+                            GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, ProfilePage.RouteName);
+                        },
+                        child: Container(
+                          // imageLq6 (116:2039)
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 0 * fem, 13.99 * fem, 0 * fem),
+                          width: 52 * fem,
+                          height: 52 * fem,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(64 * fem),
+                            child: Image.asset(
+                              'assets/prototype/images/image-dVA.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -153,7 +208,7 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
                                         Center(
                                           // thomas6bJ (116:2046)
                                           child: Text(
-                                            'Thomas',
+                                            'Aftab',
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'Inter',
@@ -191,7 +246,7 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
                                         Center(
                                           // newyorkrit (116:2053)
                                           child: Text(
-                                            'New York',
+                                            'PATOKI',
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'Inter',
@@ -242,7 +297,7 @@ class _Handyman_Reviews_ScreenState extends State<Handyman_Reviews_Screen> {
                     ),
                     Container(
                       // frame326oXe (116:2055)
-                      height: 450 * ffem / fem,
+                      height: 390 * ffem / fem,
                       width: double.infinity,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,

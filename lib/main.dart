@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:handymanservicesystem/utils.dart';
-//import 'Screens/landing.dart';
+import 'Screens/landing.dart';
 import './Screens/handyman-signin.dart';
 import './Screens/handyman-signup.dart';
-//import 'package:http/http.dart' as http;
 import './Screens/handymans-home.dart';
 import './Screens/handyman-profile.dart';
 import 'Screens/handymans-bookings.dart';
@@ -16,28 +15,8 @@ import 'Screens/customers-bookings.dart';
 import 'Screens/customer-details-handyman.dart';
 import 'Screens/customer-handymans-.dart';
 import 'Screens/customers-home.dart';
-//import 'package:handymanservicesystem/Screens/customer-sign-up.dart';
-// import 'package:handymanservicesystem/prototype/customer-sign-in.dart';
-// import 'package:handymanservicesystem/prototype/customers-home.dart';
-// import 'package:handymanservicesystem/prototype/customer-handymans-.dart';
-// import 'package:handymanservicesystem/prototype/customer-details-handyman.dart';
-// import 'package:handymanservicesystem/prototype/customers-bookings.dart';
-// import 'package:handymanservicesystem/prototype/customers-finish-service.dart';
-// import 'package:handymanservicesystem/prototype/input.dart';
-// import 'package:handymanservicesystem/prototype/handyman-signin.dart';
-// import 'package:handymanservicesystem/prototype/handyman-signup.dart';
-// import 'package:handymanservicesystem/prototype/handymans-home.dart';
-// import 'package:handymanservicesystem/prototype/card.dart';
-// import 'package:handymanservicesystem/prototype/handyman-profile.dart';
-// import 'package:handymanservicesystem/prototype/handymans-bookings.dart';
-// import 'package:handymanservicesystem/prototype/handyman-finish-service-request.dart';
-// import 'package:handymanservicesystem/prototype/handymans-accept-service-request.dart';
-// import 'package:handymanservicesystem/prototype/handyman-reviews-ratings.dart';
-// import 'package:handymanservicesystem/prototype/customer-profile.dart';
-// import 'package:handymanservicesystem/prototype/cards-settings.dart';
-// import 'package:handymanservicesystem/prototype/cards-settings-6ue.dart';
-// import 'package:handymanservicesystem/prototype/cards-settings-kq6.dart';
-// import 'package:handymanservicesystem/thumbnail/frame-372.dart';
+import 'Screens/customer-sign-in.dart';
+import 'Screens/customer-sign-up.dart';
 
 void main() {
   runApp(MyApp());
@@ -55,7 +34,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => Customer_Home(),
+          '/': (context) => landing_screen(),
           Handyman_Sign_In_Screen.RouteName: (context) =>
               Handyman_Sign_In_Screen(),
           Handyman_Sign_Up_Screen.RouteName: (context) =>
@@ -77,6 +56,9 @@ class MyApp extends StatelessWidget {
           Customer_Service_Provider.RouteName: (context) =>
               Customer_Service_Provider(),
           Customer_Home.RouteName: (context) => Customer_Home(),
+          Customer_Sign_In_Screen.RouteName  : (context) => Customer_Sign_In_Screen(),
+          Customer_SignUp_Screen.RouteName : (context) => Customer_SignUp_Screen()
+          
         },
         onGenerateRoute: (settings) {
           return MaterialPageRoute(

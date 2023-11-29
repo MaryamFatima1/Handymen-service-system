@@ -1,9 +1,152 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/customer-sign-in.dart';
 import 'package:handymanservicesystem/utils.dart';
 import './handyman-signin.dart';
+import 'package:handymanservicesystem/configuration.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../models/Role_Model.dart';
 
-class landing_screen extends StatelessWidget {
+class landing_screen extends StatefulWidget {
   static const RouteName = '/';
+
+  @override
+  State<landing_screen> createState() => _landing_screenState();
+}
+
+class _landing_screenState extends State<landing_screen> {
+  late String Handyman_id;
+
+  late String Customer_id;
+
+  RoleModel? _roleModel_hadnyman;
+
+  RoleModel? _roleModel_Customer;
+
+  /// Function for showing show Error Alert
+  void showErrorAlert({required String message}) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Error'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Data getting for handyman
+
+  void getRole_id_handyman() async {
+    // Show loading alert
+    showDialog(
+      context: context,
+      builder: (context) => LoadingAlert(),
+    );
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final request = http.Request(
+        'GET', Uri.parse('$Role_Configuration/656305c301815d2603a0e55b'));
+    request.headers.addAll(headers);
+
+    try {
+      final response = await request.send();
+      final String responseBody = await response.stream.bytesToString();
+
+      // Check response status code
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(responseBody);
+        setState(() {
+          _roleModel_hadnyman = RoleModel.fromJson(jsonData);
+          print(_roleModel_hadnyman?.name);
+          final arguments = {
+            'handyman_id': _roleModel_hadnyman!.id,
+          };
+          Navigator.pushNamed(
+            context,
+            Handyman_Sign_In_Screen.RouteName,
+            arguments: arguments,
+          );
+        });
+      } else {
+        // Handle response error
+        showErrorAlert(message: "Error in the response");
+        Navigator.of(context)
+            .pop(); // Hide loading alert after displaying error
+      }
+    } on SocketException {
+      // Handle network error
+      showErrorAlert(message: "Error in the connection");
+      Navigator.of(context).pop(); // Hide loading alert after displaying error
+    } catch (error) {
+      // Handle other errors
+      showErrorAlert(message: "Unexpected error: ${error.toString()}");
+      Navigator.of(context).pop(); // Hide loading alert after displaying error
+    }
+  }
+
+  /////data getting For customer
+  void getRole_id_customer() async {
+    // Show loading alert
+    showDialog(
+      context: context,
+      builder: (context) => LoadingAlert(),
+    );
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final request = http.Request(
+        'GET', Uri.parse('$Role_Configuration/6563057a004cbc1dafb63e0c'));
+    request.headers.addAll(headers);
+
+    try {
+      final response = await request.send();
+      final String responseBody = await response.stream.bytesToString();
+
+      // Check response status code
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(responseBody);
+        setState(() {
+          _roleModel_Customer = RoleModel.fromJson(jsonData);
+          print(_roleModel_Customer?.name);
+          final arguments = {
+            'customer_id': _roleModel_Customer!.id,
+          };
+          Navigator.pushNamed(
+            context,
+            Customer_Sign_In_Screen.RouteName,
+            arguments: arguments,
+          );
+        });
+      } else {
+        // Handle response error
+        showErrorAlert(message: "Error in the response");
+        Navigator.of(context)
+            .pop(); // Hide loading alert after displaying error
+      }
+    } on SocketException {
+      // Handle network error
+      showErrorAlert(message: "Error in the connection");
+      Navigator.of(context).pop(); // Hide loading alert after displaying error
+    } catch (error) {
+      // Handle other errors
+      showErrorAlert(message: "Unexpected error: ${error.toString()}");
+      Navigator.of(context).pop(); // Hide loading alert after displaying error
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 428;
@@ -108,7 +251,11 @@ class landing_screen extends StatelessWidget {
                   children: [
                     TextButton(
                       // buttonlargeLja (114:1547)
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          getRole_id_customer();
+                        });
+                      },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
                       ),
@@ -140,8 +287,9 @@ class landing_screen extends StatelessWidget {
                     TextButton(
                       // buttonlargeLja (114:1547)
                       onPressed: () {
-                        Navigator.pushNamed(
-                            context, Handyman_Sign_In_Screen.RouteName);
+                        setState(() {
+                          getRole_id_handyman();
+                        });
                       },
                       style: TextButton.styleFrom(
                         padding: EdgeInsets.zero,
@@ -180,3 +328,23 @@ class landing_screen extends StatelessWidget {
 }
 
 // 6535525295ad8fe2569fc6f2
+class LoadingAlert extends StatelessWidget {
+  const LoadingAlert({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const CircularProgressIndicator(),
+          const SizedBox(height: 16.0),
+          Text('Loading...'),
+        ],
+      ),
+    );
+  }
+}

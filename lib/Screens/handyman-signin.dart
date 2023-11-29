@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:handymanservicesystem/Screens/handymans-home.dart';
 import 'package:handymanservicesystem/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'handyman-signup.dart';
+import '../models/Profile.dart';
+import 'package:handymanservicesystem/configuration.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import '../Screens/landing.dart';
+import '../configuration.dart';
 
 class Handyman_Sign_In_Screen extends StatefulWidget {
   static const RouteName = '/Handyman_Sign_In';
@@ -19,6 +26,83 @@ class _Handyman_Sign_In_ScreenState extends State<Handyman_Sign_In_Screen> {
   String password = '';
   bool isChecked = false;
   bool _obscureText = true;
+  String? _handyman_id;
+
+  UserModel? userModel;
+  void showErrorAlert({required String message}) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Error'),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
+    if (arguments != null) {
+      _handyman_id = arguments['handyman_id'];
+    }
+  }
+
+  void getUserModel() async {
+    // Show loading alert
+    showDialog(
+      context: context,
+      builder: (context) => LoadingAlert(),
+    );
+
+    final headers = {
+      'Content-Type': 'application/json; charset=utf-8',
+    };
+
+    final request = http.Request(
+      'GET',
+      Uri.parse('$User_Configuration/6565303305018235f92eec3b'),
+    );
+    request.headers.addAll(headers);
+
+    try {
+      final response = await request.send();
+      final String responseBody = await response.stream.bytesToString();
+
+      // Check response status code
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(responseBody);
+        userModel = UserModel.fromJson(jsonData);
+        print('User ID: ${userModel?.id}');
+        print('First Name: ${userModel?.firstName}');
+        print('Last Name: ${userModel?.lastName}');
+        print('City Name: ${userModel?.cityName}');
+        print('Phone Number: ${userModel?.phoneNumber}');
+        print('Email: ${userModel?.email}');
+        print('Password: ${userModel?.password}');
+        print('Picture: ${userModel?.picture}');
+        print('Service Description: ${userModel?.serviceDescription}');
+        print('Role: ${userModel?.role.name}');
+        // Close loading alert
+        Navigator.of(context).pop();
+      } else {
+        // Show error alert
+        showErrorAlert(message: "Error in the response");
+        Navigator.of(context)
+            .pop(); // Hide loading alert after displaying error
+      }
+    } catch (error) {
+      // Show other errors alert
+      showErrorAlert(message: "Unexpected error: ${error.toString()}");
+      Navigator.of(context).pop(); // Hide loading alert after displaying error
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +121,7 @@ class _Handyman_Sign_In_ScreenState extends State<Handyman_Sign_In_Screen> {
             iconSize: 18.39 * fem,
             color: Color(0xff121c2d), // Set the icon color to black
             onPressed: () {
-              Navigator.pop(context);
+             Navigator.pop(context);
             },
           ),
         ),
@@ -432,12 +516,16 @@ class _Handyman_Sign_In_ScreenState extends State<Handyman_Sign_In_Screen> {
                     InkWell(
                       onTap: () {
                         setState(() {
+                          // print('azman');
+                          // getUserModel();
                           email = _emailController.text;
                           password = _passwordController.text;
                           print(email);
                           print(password);
                           _emailController.clear();
                           _passwordController.clear();
+                          Navigator.pushNamed(
+                              context, Handyman_Home.RouteName);
                         });
                       },
                       child: Container(
